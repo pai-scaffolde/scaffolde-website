@@ -51,7 +51,9 @@ export default function Home() {
               Watch Demo
             </a>
             <a
-              href="#contact"
+              href="https://calendar.app.google/T9vjWKpBvC9w3APV6"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-sm bg-[#1A1A1A] text-[#F5F5F0] px-6 py-2.5 rounded-full hover:bg-[#333] transition-colors font-semibold"
             >
               Book a Consultation
@@ -88,7 +90,9 @@ export default function Home() {
                   Watch Demo
                 </a>
                 <a
-                  href="#contact"
+                  href="https://calendar.app.google/T9vjWKpBvC9w3APV6"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2.5 border-2 border-[#1A1A1A]/20 text-[#1A1A1A] px-8 py-4 rounded-full font-semibold text-[15px] hover:border-[#1A1A1A]/35 hover:bg-white/60 transition-all"
                 >
                   Book a Consultation
@@ -421,7 +425,9 @@ export default function Home() {
                 Watch Demo
               </a>
               <a
-                href="#contact"
+                href="https://calendar.app.google/T9vjWKpBvC9w3APV6"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2.5 border-2 border-[#F5F5F0]/15 text-[#F5F5F0] px-9 py-[18px] rounded-full font-semibold text-[15px] hover:border-[#F5F5F0]/30 hover:bg-white/5 transition-all"
               >
                 Book a Consultation
