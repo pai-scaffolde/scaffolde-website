@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Human and agent readable surfaces</title>
+  <desc id="desc">A split map showing human-facing pages and agent-facing machine readable routes connected through Scaffolde.</desc>
+  <defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0 L0 0 0 40" fill="none" stroke="#1a1a1a" stroke-opacity=".06"/></pattern><filter id="shadow"><feDropShadow dx="0" dy="16" stdDeviation="16" flood-opacity=".16"/></filter></defs>
+  <rect width="1200" height="700" fill="#f5f5f0"/><rect width="1200" height="700" fill="url(#grid)"/>
+  <text x="118" y="92" font-family="Outfit, sans-serif" font-size="38" font-weight="800" fill="#1a1a1a">human surfaces</text>
+  <text x="780" y="92" font-family="Outfit, sans-serif" font-size="38" font-weight="800" fill="#1a1a1a">agent surfaces</text>
+  <g filter="url(#shadow)">
+    <rect x="85" y="145" width="405" height="360" rx="28" fill="#fff" stroke="#1a1a1a" stroke-width="3"/>
+    <rect x="85" y="145" width="405" height="52" rx="28" fill="#111"/><circle cx="122" cy="171" r="7" fill="#d9621c"/><circle cx="148" cy="171" r="7" fill="#f0b36a"/><circle cx="174" cy="171" r="7" fill="#2aa6a8"/>
+    <rect x="125" y="238" width="185" height="34" rx="17" fill="#d9621c"/><rect x="125" y="294" width="315" height="18" rx="9" fill="#1a1a1a" opacity=".85"/><rect x="125" y="330" width="270" height="12" rx="6" fill="#1a1a1a" opacity=".32"/><rect x="125" y="358" width="295" height="12" rx="6" fill="#1a1a1a" opacity=".25"/>
+    <rect x="125" y="412" width="86" height="54" rx="14" fill="#f5f5f0" stroke="#d4d4cc"/><rect x="232" y="412" width="86" height="54" rx="14" fill="#f5f5f0" stroke="#d4d4cc"/><rect x="339" y="412" width="86" height="54" rx="14" fill="#f5f5f0" stroke="#d4d4cc"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="710" y="145" width="405" height="360" rx="28" fill="#111" stroke="#1a1a1a" stroke-width="3"/>
+    <text x="755" y="214" font-family="JetBrains Mono, monospace" font-size="22" fill="#f5f5f0">/.well-known/agent.json</text>
+    <text x="755" y="262" font-family="JetBrains Mono, monospace" font-size="18" fill="#2aa6a8">/llms.txt</text>
+    <text x="755" y="310" font-family="JetBrains Mono, monospace" font-size="18" fill="#d9621c">/site.md</text>
+    <text x="755" y="358" font-family="JetBrains Mono, monospace" font-size="18" fill="#f5f5f0" opacity=".74">/proof.md</text>
+    <rect x="755" y="407" width="245" height="16" rx="8" fill="#f5f5f0" opacity=".18"/><rect x="755" y="438" width="295" height="16" rx="8" fill="#f5f5f0" opacity=".12"/>
+  </g>
+  <g stroke="#2aa6a8" stroke-width="3" fill="none" opacity=".55"><path d="M490 275 C585 220 625 220 710 260"/><path d="M490 340 C585 340 625 340 710 340"/><path d="M490 430 C585 500 625 500 710 448"/></g>
+  <g filter="url(#shadow)"><circle cx="600" cy="350" r="82" fill="#fefdf8" stroke="#d9621c" stroke-width="5"/><text x="600" y="342" font-family="Outfit, sans-serif" font-size="26" font-weight="800" fill="#1a1a1a" text-anchor="middle">Scaffolde</text><text x="600" y="374" font-family="JetBrains Mono, monospace" font-size="13" fill="#4a5568" text-anchor="middle">one source, many readers</text></g>
+</svg>

@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test:smoke": "node --test scripts/smoke.mjs",
+    "test:smoke:local": "npm run build && SCAFFOLDE_START_SERVER=1 node --test scripts/smoke.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.563.0",

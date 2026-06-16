@@ -1,0 +1,4 @@
+{"ts":"2026-05-26T01:49:07.160Z","event":"UserPromptSubmit","hook":"PastLearningInjection","duration_ms":11,"pid":79123}
+{"ts":"2026-05-26T02:02:33.152Z","event":"SessionEnd","hook":"WorkCompletionLearning","duration_ms":5,"pid":94968}
+{"ts":"2026-05-26T02:02:33.199Z","event":"UserPromptSubmit","hook":"PastLearningInjection","duration_ms":24,"pid":94969}
+{"ts":"2026-05-26T02:03:19.608Z","event":"SessionEnd","hook":"WorkCompletionLearning","duration_ms":4,"pid":95416}

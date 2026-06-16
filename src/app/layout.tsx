@@ -2,43 +2,38 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono, Outfit } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains",
-  subsets: ["latin"],
-});
-
-const outfit = Outfit({
-  variable: "--font-outfit",
-  subsets: ["latin"],
-});
+const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
+const jetbrainsMono = JetBrains_Mono({ variable: "--font-jetbrains", subsets: ["latin"] });
+const outfit = Outfit({ variable: "--font-outfit", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Scaffolde — Your work, amplified.",
+  metadataBase: new URL("https://scaffolde.ai"),
+  title: {
+    default: "Scaffolde — AI infrastructure for agents that actually do work",
+    template: "%s — Scaffolde",
+  },
   description:
-    "Personal AI infrastructure that makes professionals capable of extraordinary work. 34 skills, multi-agent orchestration, persistent memory, and self-improving architecture.",
+    "Scaffolde is a personal AI capability factory for agents, memory, workflows, skills, surfaces, verification, and improvement loops.",
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "Scaffolde — Your work, amplified.",
+    title: "Scaffolde — AI infrastructure for agents that actually do work",
     description:
-      "Personal AI infrastructure. 34 skills, 6 AI models, self-improving architecture.",
+      "A proof-driven operating manual for building and running useful AI agents with memory, workflows, verification, and improvement loops.",
+    url: "https://scaffolde.ai",
     siteName: "Scaffolde",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Scaffolde",
+    description: "AI infrastructure for agents that actually do work.",
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${inter.variable} ${jetbrainsMono.variable} ${outfit.variable} antialiased`}
-      >
+    <html lang="en" data-scroll-behavior="smooth">
+      <body className={`${inter.variable} ${jetbrainsMono.variable} ${outfit.variable} antialiased`}>
         {children}
       </body>
     </html>
