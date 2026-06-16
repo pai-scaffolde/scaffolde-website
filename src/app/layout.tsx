@@ -1,30 +1,28 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Outfit } from "next/font/google";
+import { JetBrains_Mono, Newsreader } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const newsreader = Newsreader({
+  variable: "--font-newsreader",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
 });
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains",
   subsets: ["latin"],
-});
-
-const outfit = Outfit({
-  variable: "--font-outfit",
-  subsets: ["latin"],
+  weight: ["400", "500", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "Scaffolde — Your work, amplified.",
+  title: "Scaffolde — Personal AI Capability Factory",
   description:
-    "Personal AI infrastructure that makes professionals capable of extraordinary work. 34 skills, multi-agent orchestration, persistent memory, and self-improving architecture.",
+    "Define, dispatch, coordinate, verify, and learn across agents, skills, memory, surfaces, and proof loops. The operating model that runs above the frameworks.",
   openGraph: {
-    title: "Scaffolde — Your work, amplified.",
+    title: "Scaffolde — Personal AI Capability Factory",
     description:
-      "Personal AI infrastructure. 34 skills, 6 AI models, self-improving architecture.",
+      "158 skills · 41 agents · 7 providers · 12 surfaces. AI infrastructure for agents that actually do work.",
     siteName: "Scaffolde",
   },
 };
@@ -35,9 +33,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="dark">
+      <head>
+        <link rel="preconnect" href="https://fonts.bunny.net" />
+        <link
+          href="https://fonts.bunny.net/css?family=newsreader:400,500,600|jetbrains-mono:400,500,700"
+          rel="stylesheet"
+        />
+      </head>
       <body
-        className={`${inter.variable} ${jetbrainsMono.variable} ${outfit.variable} antialiased`}
+        className={`${newsreader.variable} ${jetbrainsMono.variable} antialiased`}
       >
         {children}
       </body>

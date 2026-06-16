@@ -1,119 +1,92 @@
+@import url("https://cdn.jsdelivr.net/npm/geist@1/font/geist.css");
 @import "tailwindcss";
 
 @theme inline {
-  --font-inter: var(--font-inter);
+  --font-display: var(--font-newsreader);
   --font-mono: var(--font-jetbrains);
-  --font-display: var(--font-outfit);
 }
 
-/* Tailwind v4 includes Preflight — no custom reset needed */
+/* ---- Design tokens ---- */
+:root {
+  --bg: #0A0B0D;
+  --surface: #14161A;
+  --surface-2: #171D21;
+  --line: #23272E;
+  --text: #E9ECF1;
+  --body: #C7CDD6;
+  --muted: #6B7280;
+  --accent: #38E0D4;
+  --evidenced: #4ADE80;
+  --partial: #F5A623;
+  --noclaim: #E5484D;
+  --paper: #F4F2ED;
+
+  --display: "Newsreader", Georgia, serif;
+  --sans: "Geist", -apple-system, system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --r-sm: 2px;
+  --r-md: 4px;
+  --r-lg: 6px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="light"] {
+  --bg: #F4F2ED;
+  --surface: #ECEAE2;
+  --surface-2: #E3E0D6;
+  --line: #D2CEC2;
+  --text: #16181C;
+  --body: #2E3137;
+  --muted: #767B6F;
+  --paper: #0A0B0D;
+}
+
+/* ---- Reset & base ---- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
 html {
   scroll-behavior: smooth;
 }
 
 body {
+  background: var(--bg);
+  color: var(--body);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: var(--font-inter), system-ui, sans-serif;
-  background-color: #f5f5f0;
-  color: #1a1a1a;
+  transition: background 0.3s var(--ease), color 0.3s var(--ease);
 }
 
-/* Brand Tokens */
-:root {
-  --black: #1a1a1a;
-  --offwhite: #f5f5f0;
-  --stone: #e8e8e0;
-  --orange: #d9621c;
-  --green: #2c5f3d;
-  --slate: #4a5568;
-  --brass: #c7a05f;
-  --dark: #111111;
-}
-
-/* Architectural grid background */
-.grid-bg {
+/* ---- Blueprint grid overlay ---- */
+.blueprint-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
   background-image:
-    linear-gradient(to right, rgba(26, 26, 26, 0.025) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(26, 26, 26, 0.025) 1px, transparent 1px);
-  background-size: 80px 80px;
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 100% 64px, calc(100% / 12) 100%;
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, transparent 88%);
+  mask-image: linear-gradient(180deg, #000 0%, transparent 88%);
 }
 
-/* Terminal */
-.terminal {
-  background: #0a0a0a;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow:
-    0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 20px 40px -8px rgba(0, 0, 0, 0.2);
-}
-
-.terminal-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 18px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  background: rgba(255, 255, 255, 0.02);
-}
-
-.terminal-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-
-.terminal-body {
-  padding: 20px 22px;
-  font-family: var(--font-jetbrains), monospace;
-  font-size: 13px;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.7);
-  min-height: 340px;
-}
-
-.terminal-line-command {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.terminal-line-header {
-  color: var(--orange);
-  font-weight: 500;
-}
-
-.terminal-line-agent {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.terminal-line-result {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.terminal-line-success {
-  color: var(--green);
-  font-weight: 500;
-}
-
-@keyframes blink {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-}
-
-.cursor-blink {
-  animation: blink 1s infinite;
-  color: var(--orange);
-}
-
-/* Selection */
+/* ---- Selection ---- */
 ::selection {
-  background: rgba(217, 98, 28, 0.15);
-  color: inherit;
+  background: color-mix(in srgb, var(--accent) 25%, transparent);
+  color: var(--text);
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
