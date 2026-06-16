@@ -42,7 +42,7 @@ export default function ProofLedger() {
               fontWeight: 500,
             }}
           >
-            Risk #2 · the agent-readable layer, shown not hidden
+            The audit ledger · the governance artifact, shown not hidden
           </div>
           <h2
             style={{
@@ -55,7 +55,7 @@ export default function ProofLedger() {
               marginTop: "4px",
             }}
           >
-            For machines.
+            Proof, not marketing.
           </h2>
         </div>
 
@@ -120,7 +120,7 @@ export default function ProofLedger() {
               <span style={{ color: "var(--accent)" }}>&quot;category&quot;</span>
               {": "}
               <span style={{ color: "var(--evidenced)" }}>
-                &quot;Personal AI Capability Factory&quot;
+                &quot;Independent AI Verification &amp; Audit Plane&quot;
               </span>
               {",\n"}
               <span style={{ color: "var(--accent)" }}>&quot;stack_layers&quot;</span>

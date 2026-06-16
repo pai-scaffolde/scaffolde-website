@@ -13,16 +13,15 @@ export default function TopBar() {
 
   return (
     <div
+      className="topbar"
       style={{
         position: "sticky",
         top: 0,
         zIndex: 50,
-        background: "rgba(10,11,13,0.82)",
         backdropFilter: "blur(8px)",
         borderBottom: "1px solid var(--line)",
       }}
     >
-      {/* Light theme override via inline style not possible here — handled by CSS [data-theme="light"] .topbar */}
       <div
         style={{
           maxWidth: "1200px",

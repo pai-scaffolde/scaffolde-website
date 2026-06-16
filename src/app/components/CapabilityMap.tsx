@@ -46,7 +46,7 @@ export default function CapabilityMap() {
             fontWeight: 500,
           }}
         >
-          Capability Factory
+          Verification Plane
         </span>
         <span
           style={{

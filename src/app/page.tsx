@@ -21,9 +21,9 @@ function Footer() {
           padding: "0 32px",
         }}
       >
-        Scaffolde — The Honest Instrument · 158 skills · 41 agents · 7
-        providers · 12 surfaces · Gary Noonan, Sr. Principal Enterprise
-        Architect at Comcast Advertising ·{" "}
+        Scaffolde — The Independent AI Verification &amp; Audit Plane · across 7
+        providers · 12 surfaces · 158 skills · 41 agents · Gary Noonan, Sr.
+        Principal Enterprise Architect at Comcast Advertising ·{" "}
         <a
           href="https://calendar.app.google/T9vjWKpBvC9w3APV6"
           style={{ color: "var(--accent)", textDecoration: "none" }}

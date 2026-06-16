@@ -16,13 +16,13 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Scaffolde — Personal AI Capability Factory",
+  title: "Scaffolde — The Independent AI Verification & Audit Plane",
   description:
-    "Define, dispatch, coordinate, verify, and learn across agents, skills, memory, surfaces, and proof loops. The operating model that runs above the frameworks.",
+    "A portable, tamper-evident record of what any AI system was asked, did, and proved — across Anthropic, OpenAI, and Google. The grader can't be the graded.",
   openGraph: {
-    title: "Scaffolde — Personal AI Capability Factory",
+    title: "Scaffolde — The Independent AI Verification & Audit Plane",
     description:
-      "158 skills · 41 agents · 7 providers · 12 surfaces. AI infrastructure for agents that actually do work.",
+      "Cross-vendor proof of what an AI system was asked, did, and verified — attested by a party with no stake in the model's reputation. The grader can't be the graded.",
     siteName: "Scaffolde",
   },
 };

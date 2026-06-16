@@ -20,6 +20,7 @@
   --partial: #F5A623;
   --noclaim: #E5484D;
   --paper: #F4F2ED;
+  --topbar-bg: rgba(10, 11, 13, 0.82);
 
   --display: "Newsreader", Georgia, serif;
   --sans: "Geist", -apple-system, system-ui, sans-serif;
@@ -40,6 +41,12 @@
   --body: #2E3137;
   --muted: #767B6F;
   --paper: #0A0B0D;
+  --topbar-bg: rgba(244, 242, 237, 0.82);
+}
+
+/* ---- Sticky top bar (theme-aware background) ---- */
+.topbar {
+  background: var(--topbar-bg);
 }
 
 /* ---- Reset & base ---- */

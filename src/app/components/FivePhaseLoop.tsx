@@ -73,7 +73,7 @@ export default function FivePhaseLoop() {
               fontWeight: 500,
             }}
           >
-            The operating loop
+            Every phase asks a verification question
           </div>
           <h2
             style={{

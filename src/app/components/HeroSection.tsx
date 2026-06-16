@@ -39,7 +39,7 @@ export default function HeroSection() {
               fontWeight: 500,
             }}
           >
-            Personal AI Capability Factory
+            The Independent AI Verification &amp; Audit Plane
           </div>
 
           {/* H1 */}
@@ -54,12 +54,12 @@ export default function HeroSection() {
               letterSpacing: "-0.025em",
             }}
           >
-            AI infrastructure
+            The grader
             <br />
-            for agents that
+            can&apos;t be
             <br />
             <em style={{ fontStyle: "italic", color: "var(--accent)" }}>
-              actually do work.
+              the graded.
             </em>
           </h1>
 
@@ -67,14 +67,15 @@ export default function HeroSection() {
           <p
             style={{
               marginTop: "24px",
-              maxWidth: "38ch",
+              maxWidth: "42ch",
               color: "var(--body)",
               fontSize: "1.075rem",
             }}
           >
-            Define, dispatch, coordinate, verify, and learn across agents,
-            skills, memory, surfaces, and proof loops. The operating model that
-            runs above the frameworks.
+            A portable, tamper-evident record of what any AI system was asked,
+            did, and proved — across Anthropic, OpenAI, and Google. Acceptance
+            criteria set before work begins; checked, evidenced, and attested by
+            a party with no stake in the model&apos;s reputation.
           </p>
 
           {/* Inventory readouts */}
@@ -166,7 +167,7 @@ export default function HeroSection() {
                 display: "inline-block",
               }}
             >
-              See the proof ledger
+              See the audit ledger
             </a>
           </div>
         </div>
@@ -195,16 +196,16 @@ export default function HeroSection() {
           }}
         >
           {[
-            { prefix: "SYNC ", bold: "claude", suffix: " · 0 skips" },
-            { prefix: "WIRING-AUDIT ", bold: "0 errors", suffix: "" },
-            { prefix: "GBRAIN ", bold: "1,595 pages", suffix: " indexed" },
+            { prefix: "POSITION ", bold: "independent verifier", suffix: " · not the model vendor" },
+            { prefix: "CONTRACT ", bold: "ISA / ISC", suffix: " · criteria set before work" },
             {
-              prefix: "LOOP ",
-              bold: "Define→Dispatch→Coordinate→Verify→Learn",
+              prefix: "STATUS ",
+              bold: "evidenced · partial · do-not-claim-yet",
               suffix: "",
             },
+            { prefix: "LEDGER ", bold: "tamper-evident", suffix: " · belongs to the customer" },
             {
-              prefix: "PROVIDERS ",
+              prefix: "ACROSS ",
               bold: "anthropic · openai · gemini · grok · nim · ollama · qwen-local",
               suffix: "",
             },
