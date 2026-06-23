@@ -3,16 +3,19 @@ import Reveal from "../Reveal";
 /**
  * "The verification scoreboard." KPI row + entity chips + the live
  * Overview render. Source: bundle "The verification scoreboard" block.
- * Chip values follow the source bundle (now canonical).
+ * Chip values are aligned to the live dashboard (the source of truth) so the
+ * marketing scoreboard and the product report identical entity counts. The
+ * KPI band (verified runs / pass rate / tokens / spend) already matches the
+ * dashboard Overview.
  */
 const CHIPS = [
-  { n: "16", label: "Models" },
-  { n: "12", label: "Agents" },
-  { n: "9", label: "Skills" },
-  { n: "5", label: "Workflows" },
-  { n: "3,402", label: "Sessions" },
-  { n: "72", label: "Learnings" },
-  { n: "1,118", label: "Memories" },
+  { n: "17", label: "Models" },
+  { n: "37", label: "Agents" },
+  { n: "116", label: "Skills" },
+  { n: "24", label: "Workflows" },
+  { n: "12.9K", label: "Sessions" },
+  { n: "342", label: "Learnings" },
+  { n: "1.1K", label: "Memories" },
 ];
 
 export default function Scoreboard() {

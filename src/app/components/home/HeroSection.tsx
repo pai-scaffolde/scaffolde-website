@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Reveal from "../Reveal";
+import MotionGate from "../MotionGate";
 
 /**
  * Hero — left copy + primary/secondary CTA, right floating product shot.
@@ -42,16 +43,18 @@ export default function HeroSection() {
             </li>
           </ul>
         </Reveal>
-        <Reveal className="hero-shot">
-          <div className="shot-glow"></div>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/imagery/real-overview.png"
-            alt="Scaffolde Overview dashboard: independently verified runs, pass rate, and per-model mix across providers"
-            width={1600}
-            height={1000}
-            loading="eager"
-          />
+        <Reveal className="hero-shot-reveal">
+          <MotionGate className="hero-shot">
+            <div className="shot-glow"></div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/imagery/real-overview.png"
+              alt="Scaffolde Overview dashboard: independently verified runs, pass rate, and per-model mix across providers"
+              width={1600}
+              height={1000}
+              loading="eager"
+            />
+          </MotionGate>
         </Reveal>
       </div>
     </header>

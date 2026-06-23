@@ -348,6 +348,7 @@ p {
   color: var(--ok);
   font-weight: 700;
 }
+.hero-shot-reveal,
 .hero-shot {
   position: relative;
 }
@@ -357,6 +358,10 @@ p {
   border: 1px solid var(--border);
   box-shadow: var(--shadow-float);
   display: block;
+}
+/* The perpetual float runs only while MotionGate marks the shot live
+   (in-viewport + visible tab + motion allowed). Default = static = idle. */
+.hero-shot.motion-live img {
   animation: float 7s ease-in-out infinite;
 }
 .shot-glow {
@@ -831,7 +836,8 @@ p {
   html {
     scroll-behavior: auto;
   }
-  .hero-shot img {
+  .hero-shot img,
+  .hero-shot.motion-live img {
     animation: none;
   }
   .reveal,
