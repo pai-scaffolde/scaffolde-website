@@ -1,28 +1,29 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono, Newsreader } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const newsreader = Newsreader({
-  variable: "--font-newsreader",
+const geist = Geist({
+  variable: "--font-geist",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains",
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
+  weight: ["400", "500", "600"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Scaffolde — The Independent AI Verification & Audit Plane",
+  title: "Scaffolde — Independent proof of what your AI actually did",
   description:
-    "A portable, tamper-evident record of what any AI system was asked, did, and proved — across Anthropic, OpenAI, and Google. The grader can't be the graded.",
+    "Scaffolde is the independent verification and audit plane for AI-native teams. Tamper-evident proof of what every model, agent, and workflow was asked, did, and proved — across Anthropic, OpenAI, and Google.",
   openGraph: {
-    title: "Scaffolde — The Independent AI Verification & Audit Plane",
+    title: "Scaffolde — Independent proof of what your AI actually did",
     description:
-      "Cross-vendor proof of what an AI system was asked, did, and verified — attested by a party with no stake in the model's reputation. The grader can't be the graded.",
+      "The independent AI verification & audit plane. Tamper-evident proof of what every model, agent, and workflow was asked, did, and proved — across Anthropic, OpenAI & Google. The grader can't be the graded.",
     siteName: "Scaffolde",
   },
 };
@@ -33,17 +34,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="dark">
+    <html lang="en">
       <head>
-        <link rel="preconnect" href="https://fonts.bunny.net" />
+        {/* Satoshi (display) via Fontshare — Geist + Geist Mono are self-hosted via next/font */}
         <link
-          href="https://fonts.bunny.net/css?family=newsreader:400,500,600|jetbrains-mono:400,500,700"
+          href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700,900&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body
-        className={`${newsreader.variable} ${jetbrainsMono.variable} antialiased`}
-      >
+      <body className={`${geist.variable} ${geistMono.variable}`}>
         {children}
       </body>
     </html>

@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Scaffolde — Design System Preview</title>
+<!-- Display: Newsreader · Body/UI: Public Sans · Data/Proof: Commit Mono (proxied by JetBrains Mono in this preview) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A0B0D; --surface:#121417; --well:#060708; --rule:#23272E;
+    --text:#E8EAED; --muted:#7C8089;
+    --attested:#3DF5A0; --pending:#F5C84B; --tamper:#FF5C5C; --brass:#C9A35B;
+    --display:"Newsreader",Georgia,serif;
+    --body:"Public Sans",system-ui,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,monospace; /* = Commit Mono in prod */
+    --maxw:1200px;
+  }
+  *{box-sizing:border-box}
+  html{font-feature-settings:"tnum" 1}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:var(--body);
+    font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+  a{color:inherit}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+  .kicker{font-family:var(--body);font-size:.6875rem;text-transform:uppercase;
+    letter-spacing:.14em;color:var(--muted);font-weight:600}
+  .rule{border:0;border-top:1px solid var(--rule);margin:0}
+  section{padding:64px 0}
+  h2.sec{font-family:var(--display);font-weight:500;font-size:2rem;letter-spacing:-.02em;margin:0 0 8px}
+  .sec-no{font-family:var(--mono);color:var(--muted);font-size:.8125rem}
+
+  /* ---------- Top document header ---------- */
+  .topbar{border-bottom:1px solid var(--rule)}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;
+    padding-top:12px;padding-bottom:12px;font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+  .topbar b{color:var(--text);letter-spacing:.04em}
+  .tick .v{color:var(--attested)}
+
+  /* ---------- Hero poster ---------- */
+  .hero .wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:start;
+    padding-top:72px;padding-bottom:56px}
+  .claim{font-family:var(--display);font-weight:400;font-size:clamp(2.4rem,5vw,4.2rem);
+    line-height:1.02;letter-spacing:-.025em;margin:18px 0 0}
+  .claim em{font-style:italic}
+  .proved{color:var(--attested)}
+  .subline{font-family:var(--display);font-style:italic;color:var(--muted);
+    font-size:1.35rem;line-height:1.3;margin-top:18px;max-width:30ch}
+  .lede{margin-top:22px;max-width:46ch;color:var(--text)}
+  .fork{margin-top:34px;border-top:1px solid var(--rule)}
+  .fork a{display:flex;align-items:baseline;gap:10px;padding:16px 0;border-bottom:1px solid var(--rule);
+    text-decoration:none;font-family:var(--mono);font-size:.95rem}
+  .fork a .arrow{color:var(--attested)}
+  .fork a .lead{flex:1;border-bottom:1px dotted var(--rule);transform:translateY(-4px);margin:0 6px}
+  .fork a .dest{color:var(--muted)}
+  .fork a:hover{color:#fff}
+  .fork a:hover .dest{color:var(--attested)}
+  .sig{margin-top:28px;font-family:var(--mono);font-size:.78rem;color:var(--muted);
+    border-top:1px solid var(--rule);padding-top:12px}
+  .sig b{color:var(--text)}
+
+  /* ---------- Evidence artifact panel ---------- */
+  .artifact{background:var(--well);border:1px solid var(--rule);border-radius:6px;overflow:hidden}
+  .artifact .head{display:flex;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--rule);
+    font-family:var(--mono);font-size:.7rem;color:var(--muted)}
+  .artifact .body{padding:14px;font-family:var(--mono);font-size:.78rem;line-height:1.9}
+  .artifact .row{display:flex;justify-content:space-between;gap:12px}
+  .artifact .k{color:var(--muted)} .artifact .val{color:var(--text)}
+  .badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:.72rem;
+    padding:2px 8px;border-radius:2px;border:1px solid}
+  .b-ok{color:var(--attested);border-color:#1e5e43;background:#0c1f17}
+  .b-pending{color:var(--pending);border-color:#5e4f1e;background:#1f1b0c}
+  .b-tamper{color:var(--tamper);border-color:#5e2222;background:#1f0c0c}
+  .dot{width:7px;height:7px;border-radius:9999px;background:currentColor;display:inline-block}
+  .ledger{border-top:1px solid var(--rule);margin-top:14px}
+  .ledger .lrow{display:grid;grid-template-columns:1fr auto auto;gap:10px;padding:7px 14px;
+    font-family:var(--mono);font-size:.72rem;border-bottom:1px solid var(--rule);color:var(--muted)}
+  .ledger .lrow .m{color:var(--text)} .ledger .lrow .ok{color:var(--attested)}
+
+  /* ---------- swatches ---------- */
+  .swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+  .sw{border:1px solid var(--rule);border-radius:4px;overflow:hidden}
+  .sw .chip{height:64px} .sw .meta{padding:8px 10px;font-family:var(--mono);font-size:.7rem}
+  .sw .name{color:var(--text)} .sw .hex{color:var(--muted)}
+
+  /* ---------- type specimen ---------- */
+  .spec{border:1px solid var(--rule);border-radius:6px;padding:20px;margin-bottom:14px}
+  .spec .role{font-family:var(--mono);font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+
+  /* ---------- buttons & components ---------- */
+  .btns{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .btn{font-family:var(--body);font-weight:600;font-size:.9rem;padding:11px 20px;border-radius:4px;
+    border:1px solid transparent;cursor:pointer;text-decoration:none;display:inline-block}
+  .btn-primary{background:var(--attested);color:#04130c;border-color:var(--attested)}
+  .btn-secondary{background:transparent;color:var(--text);border-color:var(--rule)}
+  .btn-ghost{background:transparent;color:var(--muted);border-color:transparent}
+  .btn-brass{background:var(--brass);color:#1a1306;border-color:var(--brass)}
+
+  /* ---------- investor strip ---------- */
+  .inv{border:1px solid #3a2f17;border-radius:6px;background:#13100a;padding:24px}
+  .inv .seal{font-family:var(--mono);font-size:.7rem;color:var(--brass);letter-spacing:.1em;text-transform:uppercase}
+  .inv h3{font-family:var(--display);font-weight:500;font-size:1.5rem;margin:8px 0 6px}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .note{font-family:var(--mono);font-size:.7rem;color:var(--muted);margin-top:8px}
+  @media(max-width:780px){
+    .hero .wrap{grid-template-columns:1fr}
+    .two{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<!-- DOCUMENT HEADER -->
+<div class="topbar"><div class="wrap">
+  <span><b>SCAFFOLDE</b> · INDEPENDENT VERIFICATION PLANE</span>
+  <span class="tick mono">LAST ATTESTATION · <span id="ts">2026-06-22 14:07:33 UTC</span> · <span class="v">#00482</span></span>
+</div></div>
+
+<!-- HERO POSTER -->
+<div class="hero"><div class="wrap">
+  <div>
+    <div class="kicker">The Independent AI Verification &amp; Audit Plane</div>
+    <h1 class="claim">Independent proof of<br>what any AI was<br>asked, did, and <em class="proved">proved&nbsp;✓</em></h1>
+    <div class="subline">Attested by a party with no stake in the model's reputation.<br>The grader can't be the graded.</div>
+    <p class="lede">A portable, tamper-evident record of what any AI system was asked, did, and proved — across Anthropic, OpenAI, and Google. Acceptance criteria set before work begins; checked, evidenced, and attested independently.</p>
+
+    <div class="fork">
+      <a href="#"><span class="arrow">→</span> I'm evaluating this for my org <span class="lead"></span> <span class="dest">/product</span></a>
+      <a href="#"><span class="arrow">→</span> I'm investing <span class="lead"></span> <span class="dest">/investors</span></a>
+    </div>
+
+    <div class="sig">SIGNED · <b>Gary Noonan</b> · Sr. Principal Enterprise Architect, Comcast Advertising</div>
+  </div>
+
+  <!-- EVIDENCE RAIL -->
+  <div>
+    <div class="artifact">
+      <div class="head"><span>ARTIFACT SCAF-2026-06-22-1841</span><span class="badge b-ok"><span class="dot"></span>VERIFIED</span></div>
+      <div class="body">
+        <div class="row"><span class="k">request hash</span><span class="val">8f42c1…a907</span></div>
+        <div class="row"><span class="k">model claimed</span><span class="val">claude-opus-4-8</span></div>
+        <div class="row"><span class="k">actions observed</span><span class="val">17</span></div>
+        <div class="row"><span class="k">proofs attached</span><span class="val">6</span></div>
+        <div class="row"><span class="k">attestor</span><span class="val">independent</span></div>
+        <div class="row"><span class="k">status</span><span class="val" style="color:var(--attested)">VERIFIED</span></div>
+      </div>
+      <div class="ledger" id="ledger">
+        <div class="lrow"><span class="m">gpt-5.5</span><span>4b1e…</span><span class="ok">PASS</span></div>
+        <div class="lrow"><span class="m">gemini-3.5-flash</span><span>0c77…</span><span class="ok">PASS</span></div>
+        <div class="lrow"><span class="m">claude-opus-4-8</span><span>8f42…</span><span class="ok">PASS</span></div>
+      </div>
+    </div>
+    <div class="note">Live evidence rail — real resolving records, not an illustration.</div>
+  </div>
+</div></div>
+
+<hr class="rule">
+
+<!-- COLOR -->
+<section><div class="wrap">
+  <div class="sec-no">§1 · COLOR</div>
+  <h2 class="sec">One signal color. It only means "verified."</h2>
+  <p style="color:var(--muted);max-width:60ch">Color is never decorative. When something turns green, a real check passed. Amber = pending attestation, red = tamper. Brass appears only on the investor route.</p>
+  <div class="swatches" style="margin-top:20px">
+    <div class="sw"><div class="chip" style="background:#0A0B0D;border-bottom:1px solid var(--rule)"></div><div class="meta"><div class="name">Base</div><div class="hex">#0A0B0D</div></div></div>
+    <div class="sw"><div class="chip" style="background:#121417"></div><div class="meta"><div class="name">Surface</div><div class="hex">#121417</div></div></div>
+    <div class="sw"><div class="chip" style="background:#060708"></div><div class="meta"><div class="name">Well</div><div class="hex">#060708</div></div></div>
+    <div class="sw"><div class="chip" style="background:#E8EAED"></div><div class="meta"><div class="name">Text</div><div class="hex">#E8EAED</div></div></div>
+    <div class="sw"><div class="chip" style="background:#7C8089"></div><div class="meta"><div class="name">Muted</div><div class="hex">#7C8089</div></div></div>
+    <div class="sw"><div class="chip" style="background:#3DF5A0"></div><div class="meta"><div class="name">Attested</div><div class="hex">#3DF5A0</div></div></div>
+    <div class="sw"><div class="chip" style="background:#F5C84B"></div><div class="meta"><div class="name">Pending</div><div class="hex">#F5C84B</div></div></div>
+    <div class="sw"><div class="chip" style="background:#FF5C5C"></div><div class="meta"><div class="name">Tamper</div><div class="hex">#FF5C5C</div></div></div>
+    <div class="sw"><div class="chip" style="background:#C9A35B"></div><div class="meta"><div class="name">Brass /investors</div><div class="hex">#C9A35B</div></div></div>
+  </div>
+</div></section>
+
+<hr class="rule">
+
+<!-- TYPE -->
+<section><div class="wrap">
+  <div class="sec-no">§2 · TYPOGRAPHY</div>
+  <h2 class="sec">Editor · Clerk · Machine</h2>
+  <div class="spec">
+    <div class="role">Display / Hero — Newsreader</div>
+    <div style="font-family:var(--display);font-size:2.6rem;letter-spacing:-.02em;margin-top:6px">The grader can't be the graded.</div>
+  </div>
+  <div class="spec">
+    <div class="role">Body / UI — Public Sans</div>
+    <p style="margin:6px 0 0;max-width:64ch">Acceptance criteria set before work begins; checked, evidenced, and attested by a party with no stake in the model's reputation. The typeface the US government built for accessible official documents.</p>
+  </div>
+  <div class="spec">
+    <div class="role">Data / Proof — Commit Mono (JetBrains Mono in preview)</div>
+    <div class="mono" style="margin-top:6px;font-size:.9rem">request_hash = 8f42c1a907 · attestor = independent · status = VERIFIED · 2026-06-22T14:07:33Z</div>
+  </div>
+</div></div></section>
+
+<hr class="rule">
+
+<!-- COMPONENTS -->
+<section><div class="wrap">
+  <div class="sec-no">§3 · COMPONENTS</div>
+  <h2 class="sec">Buttons &amp; verification states</h2>
+  <div class="two" style="margin-top:18px">
+    <div>
+      <div class="btns">
+        <a class="btn btn-primary" href="#">Inspect the proof</a>
+        <a class="btn btn-secondary" href="#">Book a call</a>
+        <a class="btn btn-ghost" href="#">Read the spec →</a>
+      </div>
+      <div class="btns" style="margin-top:16px">
+        <span class="badge b-ok"><span class="dot"></span>VERIFIED</span>
+        <span class="badge b-pending"><span class="dot"></span>PENDING</span>
+        <span class="badge b-tamper"><span class="dot"></span>TAMPER</span>
+      </div>
+    </div>
+    <div class="inv">
+      <div class="seal">◆ /investors — notarized</div>
+      <h3>The audit plane for the AI era.</h3>
+      <p style="color:var(--muted);margin:0 0 14px">Thesis · market · why-now · founder · traction · data room.</p>
+      <a class="btn btn-brass" href="#">Request the data room</a>
+    </div>
+  </div>
+</div></section>
+
+<hr class="rule">
+<div class="wrap" style="padding:28px 32px;font-family:var(--mono);font-size:.68rem;color:var(--muted)">
+  THIS PAGE · build a3f9c1 · content-hash 9e21…d4 · rendered <span id="rendered">2026-06-22 14:07 UTC</span> · <span style="color:var(--attested)">verify ↗</span>
+  &nbsp;·&nbsp; Design system preview — dogfooding DESIGN.md. Mono shown as JetBrains Mono; production = Commit Mono.
+</div>
+
+<script>
+  // Mechanical ticker: prepend a new resolved record every few seconds (discrete, not faded)
+  var models=["claude-opus-4-8","gpt-5.5","gemini-3.5-flash","claude-sonnet-4-6"];
+  var seq=482;
+  function hex(){var s="0123456789abcdef",o="";for(var i=0;i<4;i++)o+=s[Math.floor(Math.random()*16)];return o;}
+  if(!matchMedia("(prefers-reduced-motion: reduce)").matches){
+    setInterval(function(){
+      seq++;
+      var l=document.getElementById("ledger");
+      var row=document.createElement("div");row.className="lrow";
+      row.innerHTML='<span class="m">'+models[seq%models.length]+'</span><span>'+hex()+'…</span><span class="ok">PASS</span>';
+      l.insertBefore(row,l.firstChild);
+      if(l.children.length>5)l.removeChild(l.lastChild);
+      document.querySelector(".tick .v").textContent="#"+String(seq).padStart(5,"0");
+    },2600);
+  }
+</script>
+</body>
+</html>
