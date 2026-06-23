@@ -37,10 +37,12 @@ export default function Reveal({
     const el = ref.current;
     if (!el) return;
 
+    const reveal = () => el.classList.add("in");
+
     // Reduced motion or no observer support: leave content visible, no animation.
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce || !("IntersectionObserver" in window)) {
-      el.classList.add("in");
+      reveal();
       return;
     }
 
@@ -48,32 +50,46 @@ export default function Reveal({
     // (Hidden state is applied here, never by default CSS, so SSR/no-JS is safe.)
     el.classList.add("reveal-armed");
 
-    const reveal = () => {
-      el.classList.add("in");
-    };
+    const vh = () => window.innerHeight || document.documentElement.clientHeight;
 
     // Already in view on mount (above-the-fold) — reveal immediately so the
     // hero never depends on a scroll event that won't fire.
     const rect = el.getBoundingClientRect();
-    const vh = window.innerHeight || document.documentElement.clientHeight;
-    if (rect.top < vh && rect.bottom > 0) {
+    if (rect.top < vh() && rect.bottom > 0) {
       reveal();
       return;
     }
 
+    let done = false;
+    const finish = () => {
+      if (done) return;
+      done = true;
+      reveal();
+      io.disconnect();
+      window.removeEventListener("scroll", onScroll);
+    };
+
     const io = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("in");
-            io.unobserve(entry.target);
-          }
-        });
+        if (entries.some((e) => e.isIntersecting)) finish();
       },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0, rootMargin: "0px 0px 12% 0px" }
     );
     io.observe(el);
-    return () => io.disconnect();
+
+    // Fallback for instant scroll jumps (fast flick, End key, hash link): the
+    // element can move from below the fold to above it in a single frame, so the
+    // observer never catches it intersecting and it would stay armed/blank. On
+    // any scroll, if the element has reached or passed the viewport, reveal it.
+    const onScroll = () => {
+      if (el.getBoundingClientRect().top < vh()) finish();
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      io.disconnect();
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   const cls = `reveal ${className}`.trim();
