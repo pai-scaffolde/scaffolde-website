@@ -7,7 +7,7 @@ import Reveal from "../components/Reveal";
 const CAL_URL = "https://calendar.app.google/T9vjWKpBvC9w3APV6";
 
 export const metadata: Metadata = {
-  title: "Investors — The independent AI verification category | Scaffolde",
+  title: "Investors: The independent AI verification category | Scaffolde",
   description:
     "Scaffolde is the independent verification and audit plane for AI-native business. The thesis, the market and why now, the wedge, the founder, and the path to the data room.",
 };
@@ -24,7 +24,7 @@ export default function InvestorsPage() {
           <h1>Someone has to certify AI. It can&rsquo;t be the AI vendors.</h1>
           <p className="lede">
             Scaffolde is the independent verification and audit plane for AI-native
-            business — the notary for what AI was asked, did, and proved. We&rsquo;re
+            business: the notary for what AI was asked, did, and proved. We&rsquo;re
             raising a pre-seed round to own that category.
           </p>
           <div className="cta">
@@ -48,7 +48,7 @@ export default function InvestorsPage() {
               Enterprises are putting AI into decisions they have to defend. The
               companies that build the models can&rsquo;t be the ones who certify the
               models worked. That independent verification layer doesn&rsquo;t exist
-              yet — and it&rsquo;s a category, not a feature.
+              yet. It&rsquo;s a category, not a feature.
             </p>
           </Reveal>
           <Reveal className="thesis-grid">
@@ -56,8 +56,9 @@ export default function InvestorsPage() {
               <span className="num">01</span>
               <h3>An independent plane</h3>
               <p>
-                Scaffolde sits outside Anthropic, OpenAI, and Google — recording and
-                attesting what every model, agent, and workflow actually did, with no
+                Scaffolde sits outside every model vendor: Anthropic, OpenAI,
+                Google, xAI, and open-source providers. It records and attests
+                what every model, agent, and workflow actually did, with no
                 stake in any vendor&rsquo;s reputation.
               </p>
             </div>
@@ -74,7 +75,7 @@ export default function InvestorsPage() {
               <span className="num">03</span>
               <h3>Become the standard</h3>
               <p>
-                The endgame is to be the notary for AI attestation — the layer every
+                The endgame is to be the notary for AI attestation: the layer every
                 audited AI decision routes through. Narrow wedge, broad future.
               </p>
             </div>
@@ -90,8 +91,8 @@ export default function InvestorsPage() {
             <h2>The governance wave is arriving before the proof layer exists.</h2>
             <p>
               AI moved into regulated, high-stakes decisions faster than anyone built
-              the means to verify it. The enforcement and the budgets are landing now
-              — the independent proof layer is the missing piece.
+              the means to verify it. The enforcement and the budgets are landing now.
+              The independent proof layer is the missing piece.
             </p>
           </Reveal>
           <Reveal className="deflist">
@@ -99,7 +100,7 @@ export default function InvestorsPage() {
               <h3>Regulation is enforcing</h3>
               <p>
                 The EU AI Act and a wave of sector rules now demand auditable
-                evidence of how AI reached a decision — not vendor assurances.
+                evidence of how AI reached a decision. Not vendor assurances.
               </p>
             </div>
             <div className="defitem">
@@ -153,8 +154,8 @@ export default function InvestorsPage() {
               <p>
                 That narrow wedge implies the broad future: once we&rsquo;re the proof
                 a regulated buyer trusts, the same attestation layer extends to every
-                agent, skill, and workflow across the AI-native business —
-                observability and verification, not just compliance.
+                agent, skill, and workflow across the AI-native business.
+                Observability and verification, not just compliance.
               </p>
               <Link href="/product" className="link-arrow">
                 See the surface it spans <span className="arr">&rarr;</span>
@@ -184,8 +185,8 @@ export default function InvestorsPage() {
               </div>
               <p>
                 Gary has spent his career architecting large-scale enterprise systems
-                where AI decisions have to hold up to scrutiny — the exact buyer and
-                the exact constraint Scaffolde is built for. He has lived the gap
+                where AI decisions have to hold up to scrutiny. That is the exact buyer
+              and the exact constraint Scaffolde is built for. He has lived the gap
                 between &ldquo;the AI gave an answer&rdquo; and &ldquo;we can prove the
                 answer to an auditor,&rdquo; and built Scaffolde to close it.
               </p>
@@ -215,7 +216,7 @@ export default function InvestorsPage() {
               <span className="lab">Live product</span>
               <div className="val">Inspectable today</div>
               <p className="desc">
-                A working dashboard with real, independently attested runs — not a
+                A working dashboard with real, independently attested runs. Not a
                 mockup. Click in from any page.
               </p>
               <span className="tr-status tr-live">
@@ -254,7 +255,7 @@ export default function InvestorsPage() {
           <div className="pull">
             <q>
               This is a product, not a consultancy. The proof artifact is self-serve
-              and inspectable — open it before you ever talk to us.
+              and inspectable. Open it before you ever talk to us.
             </q>
             <div className="attr">Venture-scale, not services</div>
           </div>

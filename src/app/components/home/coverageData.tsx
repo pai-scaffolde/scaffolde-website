@@ -35,7 +35,7 @@ export const COVERAGE: CoverageItem[] = [
   },
   {
     title: "Workflows",
-    body: "Multi-step pipelines with full run history and step-by-step verification — every stage evidenced.",
+    body: "Multi-step pipelines with full run history. Every stage verified and evidenced.",
     icon: (
       <>
         <path d="M4 6h16M4 12h16M4 18h10" />
@@ -45,7 +45,7 @@ export const COVERAGE: CoverageItem[] = [
   },
   {
     title: "Sessions",
-    body: "Every AI session as the unit of work — each one inspectable and linked to its own attestation.",
+    body: "Every AI session as the unit of work. Each one inspectable and linked to its own attestation.",
     icon: (
       <>
         <circle cx="12" cy="12" r="9" />
@@ -55,7 +55,7 @@ export const COVERAGE: CoverageItem[] = [
   },
   {
     title: "Tokens & spend",
-    body: "Tokens and cost by model, agent, project, and time — usage and spend, verified and reportable.",
+    body: "Tokens and cost by model, agent, project, and time. Usage and spend, verified and reportable.",
     icon: (
       <>
         <path d="M3 17l6-6 4 4 7-7" />
@@ -65,7 +65,7 @@ export const COVERAGE: CoverageItem[] = [
   },
   {
     title: "Full model support",
-    body: "Every model you run — paid by subscription or API, or fully open-source. Claude, GPT, Gemini, Grok, and open models, each with per-model pass rate and cost.",
+    body: "Every model you run: paid by subscription, by API, or fully open-source. Claude, GPT, Gemini, Grok, DeepSeek, Qwen, and more. Per-model pass rate and cost for all of them.",
     icon: (
       <>
         <rect x="3" y="3" width="7" height="7" rx="1.5" />
@@ -77,7 +77,7 @@ export const COVERAGE: CoverageItem[] = [
   },
   {
     title: "Learnings",
-    body: "What the system learned and promoted through its self-improvement loop — with full provenance.",
+    body: "What the system learned and promoted through its self-improvement loop, with full provenance.",
     icon: (
       <>
         <path d="M12 3a9 9 0 0 0-9 9 9 9 0 0 0 9 9c1 0 2-.4 2-1.5S13 19 13 18s.7-1.5 1.7-1.5H17a4 4 0 0 0 4-4c0-5-4-9.5-9-9.5Z" />
@@ -100,7 +100,7 @@ export const COVERAGE: CoverageItem[] = [
   },
   {
     title: "Attestations",
-    body: "The tamper-evident proof records themselves — signed, sealed, and ready to put in front of an auditor.",
+    body: "The tamper-evident proof records themselves: signed, sealed, and ready to put in front of an auditor.",
     icon: (
       <>
         <path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6Z" />

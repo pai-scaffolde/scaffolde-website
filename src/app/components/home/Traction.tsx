@@ -25,7 +25,7 @@ const CARDS: {
   {
     lab: "Live product",
     val: "Inspectable today",
-    desc: "A live, working dashboard you can open and click through end to end — see exactly how a run is verified, attested, and sealed.",
+    desc: "A live, working dashboard you can open and click through end to end. See exactly how a run is verified, attested, and sealed.",
     status: "Live",
     statusClass: "live",
     href: "/dashboard",

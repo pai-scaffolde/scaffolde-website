@@ -8,7 +8,7 @@ import Reveal from "../Reveal";
 const WHY_NOW = [
   {
     h3: "Regulation is enforcing",
-    p: "The EU AI Act and a wave of sector rules now demand auditable evidence of how AI reached a decision — not vendor assurances.",
+    p: "The EU AI Act and a wave of sector rules now demand auditable evidence of how AI reached a decision. Not vendor assurances.",
   },
   {
     h3: "Governance budgets are funded",
@@ -34,7 +34,7 @@ export default function MarketWhyNow() {
           <p>
             AI moved into regulated, high-stakes decisions faster than anyone
             built the means to verify it. The enforcement and the budgets are
-            landing now — the independent proof layer is the missing piece.
+            landing now. The independent proof layer is the missing piece.
           </p>
         </Reveal>
         <Reveal className="deflist">

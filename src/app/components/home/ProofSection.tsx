@@ -15,7 +15,7 @@ const PARTS = [
   {
     key: "B",
     title: "The action trace.",
-    body: "Every step the AI took — tools, calls, and intermediate work.",
+    body: "Every step the AI took: tools, calls, and intermediate work.",
   },
   {
     key: "C",
@@ -30,7 +30,7 @@ const PARTS = [
   {
     key: "E",
     title: "The vendor boundary.",
-    body: "Which provider and model ran — recorded, never trusted to self-certify.",
+    body: "Which provider and model ran. Recorded, never trusted to self-certify.",
   },
 ];
 
@@ -45,7 +45,7 @@ export default function ProofSection() {
               Every run is a tamper-evident record you can open.
             </h2>
             <p>
-              Not a screenshot of a result — a record of how it was reached.
+              Not a screenshot of a result. A record of how it was reached.
               Every proof contains five inspectable, exportable parts:
             </p>
             <ul className="proof-parts">

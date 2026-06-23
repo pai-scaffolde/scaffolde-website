@@ -24,34 +24,35 @@ export default function Scoreboard() {
       <div className="wrap">
         <Reveal className="sec-head sec-head-center">
           <div className="kicker">The verification scoreboard</div>
-          <h2>Not just compliance. Observability for everything your AI does.</h2>
+          <h2>One scoreboard. Observability for everything your AI does.</h2>
           <p>
-            Every model, agent, skill, workflow, session, learning, and memory —
-            rolled up into one scoreboard you can report on.
+            Every model, agent, skill, workflow, session, learning, and memory,
+            rolled up into one scoreboard you can report on. The numbers below
+            are from the live demo dashboard.
           </p>
         </Reveal>
         <Reveal className="kpi-row">
           <div className="kpi">
             <span className="kpi-num">24,815</span>
-            <span className="kpi-label">Verified runs</span>
+            <span className="kpi-label">Verified runs (demo)</span>
           </div>
           <div className="kpi">
             <span className="kpi-num">
               98.6<span className="kpi-unit">%</span>
             </span>
-            <span className="kpi-label">Pass rate</span>
+            <span className="kpi-label">Pass rate (demo)</span>
           </div>
           <div className="kpi">
             <span className="kpi-num">
               1.24<span className="kpi-unit">B</span>
             </span>
-            <span className="kpi-label">Tokens verified</span>
+            <span className="kpi-label">Tokens verified (demo)</span>
           </div>
           <div className="kpi">
             <span className="kpi-num kpi-ok">
               $48.2<span className="kpi-unit">K</span>
             </span>
-            <span className="kpi-label">Spend tracked</span>
+            <span className="kpi-label">Spend tracked (demo)</span>
           </div>
         </Reveal>
         <Reveal className="chip-row">

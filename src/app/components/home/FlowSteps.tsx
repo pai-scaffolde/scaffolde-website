@@ -13,7 +13,7 @@ const FLOW = [
   {
     fn: "02 / ATTEST",
     h3: "Independent signature",
-    p: "A party with no stake in the model signs the result — recording what was asked, what was done, and whether it passed.",
+    p: "A party with no stake in the model signs the result, recording what was asked, what was done, and whether it passed.",
   },
   {
     fn: "03 / PROVE",
@@ -23,7 +23,7 @@ const FLOW = [
   {
     fn: "04 / AUDIT",
     h3: "Reportable record",
-    p: "Every proof rolls up into a running, queryable record — pass rates, provider coverage, and full history for any auditor.",
+    p: "Every proof rolls up into a running, queryable record: pass rates, provider coverage, and full history for any auditor.",
   },
 ];
 

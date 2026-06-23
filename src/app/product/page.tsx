@@ -7,9 +7,9 @@ import Reveal from "../components/Reveal";
 const CAL_URL = "https://calendar.app.google/T9vjWKpBvC9w3APV6";
 
 export const metadata: Metadata = {
-  title: "Product — Scaffolde verifies everything your AI does",
+  title: "Product: Scaffolde verifies everything your AI does",
   description:
-    "Scaffolde verifies the whole AI-native business: agents, skills, workflows, sessions, tokens, models, learnings, and memories — and produces tamper-evident proof of each.",
+    "Scaffolde verifies the whole AI-native business: agents, skills, workflows, sessions, tokens, models, learnings, and memories. Tamper-evident proof of each.",
 };
 
 const FEATURES = [
@@ -35,7 +35,7 @@ const FEATURES = [
   },
   {
     title: "Workflows",
-    body: "Multi-step pipelines with full run history and step-by-step verification — every stage evidenced.",
+    body: "Multi-step pipelines with full run history. Every stage verified and evidenced.",
     icon: (
       <>
         <path d="M4 6h16M4 12h16M4 18h10" />
@@ -45,7 +45,7 @@ const FEATURES = [
   },
   {
     title: "Sessions",
-    body: "Every AI session as the unit of work — each one inspectable and linked to its own attestation.",
+    body: "Every AI session as the unit of work. Each one inspectable and linked to its own attestation.",
     icon: (
       <>
         <circle cx="12" cy="12" r="9" />
@@ -55,7 +55,7 @@ const FEATURES = [
   },
   {
     title: "Tokens & spend",
-    body: "Tokens and cost by model, agent, project, and time — usage and spend, verified and reportable.",
+    body: "Tokens and cost by model, agent, project, and time. Usage and spend, verified and reportable.",
     icon: (
       <>
         <path d="M3 17l6-6 4 4 7-7" />
@@ -65,7 +65,7 @@ const FEATURES = [
   },
   {
     title: "Models",
-    body: "The full model mix — Claude, GPT, Gemini and versions — with per-model pass rate and cost.",
+    body: "The full model mix: Claude, GPT, Gemini, Grok, DeepSeek, Qwen, and any open-source model you run. Per-model pass rate and cost.",
     icon: (
       <>
         <rect x="3" y="3" width="7" height="7" rx="1.5" />
@@ -77,7 +77,7 @@ const FEATURES = [
   },
   {
     title: "Learnings",
-    body: "What the system learned and promoted through its self-improvement loop — with full provenance.",
+    body: "What the system learned and promoted through its self-improvement loop, with full provenance.",
     icon: (
       <>
         <path d="M12 3a9 9 0 0 0-9 9 9 9 0 0 0 9 9c1 0 2-.4 2-1.5S13 19 13 18s.7-1.5 1.7-1.5H17a4 4 0 0 0 4-4c0-5-4-9.5-9-9.5Z" />
@@ -100,7 +100,7 @@ const FEATURES = [
   },
   {
     title: "Attestations",
-    body: "The tamper-evident proof records themselves — signed, sealed, and ready to put in front of an auditor.",
+    body: "The tamper-evident proof records themselves: signed, sealed, and ready to put in front of an auditor.",
     icon: (
       <>
         <path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6Z" />
@@ -122,7 +122,7 @@ export default function ProductPage() {
           <h1>Verify everything your AI actually does.</h1>
           <p className="lede">
             Scaffolde isn&rsquo;t a compliance checkbox. It&rsquo;s the
-            verification and observability plane for an AI-native business — every
+            verification and observability plane for an AI-native business: every
             model, agent, skill, workflow, session, learning, and memory, recorded
             and independently attested.
           </p>
@@ -150,7 +150,7 @@ export default function ProductPage() {
                 Most AI tools ask you to &ldquo;request a demo.&rdquo; Scaffolde
                 hands you the working dashboard. Click into any run and inspect the
                 original ask, the action trace, the proof bundle, and the
-                independent attestation — exportable and verifiable, end to end.
+                independent attestation, exportable and verifiable, end to end.
               </p>
               <div className="badge-row">
                 <span className="badge">
@@ -185,7 +185,7 @@ export default function ProductPage() {
             <div className="kicker">One plane, every surface</div>
             <h2>What Scaffolde verifies.</h2>
             <p>
-              The grader can&rsquo;t be the graded — and that now spans your entire
+              The grader can&rsquo;t be the graded. That now spans your entire
               AI stack, not just a model&rsquo;s output.
             </p>
           </Reveal>
@@ -221,31 +221,32 @@ export default function ProductPage() {
             <p>
               Verified runs, pass rate, tokens, and spend up top; the model mix,
               top agents, and recent verified sessions below. Everything
-              inspectable down to a single attestation.
+              inspectable down to a single attestation. The figures below are
+              from the live demo dashboard.
             </p>
           </Reveal>
           <Reveal className="kpi-row">
             <div className="kpi">
               <span className="kpi-num">24,815</span>
-              <span className="kpi-label">Verified runs</span>
+              <span className="kpi-label">Verified runs (demo)</span>
             </div>
             <div className="kpi">
               <span className="kpi-num">
                 98.6<span className="kpi-unit">%</span>
               </span>
-              <span className="kpi-label">Pass rate</span>
+              <span className="kpi-label">Pass rate (demo)</span>
             </div>
             <div className="kpi">
               <span className="kpi-num">
                 1.24<span className="kpi-unit">B</span>
               </span>
-              <span className="kpi-label">Tokens verified</span>
+              <span className="kpi-label">Tokens verified (demo)</span>
             </div>
             <div className="kpi">
               <span className="kpi-num kpi-ok">
                 $48.2<span className="kpi-unit">K</span>
               </span>
-              <span className="kpi-label">Spend tracked</span>
+              <span className="kpi-label">Spend tracked (demo)</span>
             </div>
           </Reveal>
           <Reveal className="wide-shot">
@@ -281,7 +282,7 @@ export default function ProductPage() {
             <h2>Inspect it yourself.</h2>
             <p>
               Open the live dashboard and click into a real, independently attested
-              run — no form, no sales call.
+              run. No form, no sales call.
             </p>
           </div>
           <div className="cta-band-actions">

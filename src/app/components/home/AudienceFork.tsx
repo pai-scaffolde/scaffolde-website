@@ -15,7 +15,7 @@ export default function AudienceFork() {
             <p>
               Open a real, inspectable verification artifact and see how
               independent attestation works across every model, agent, and
-              workflow you run.
+              workflow you run, including open-source and self-hosted models.
             </p>
             <span className="go">
               Explore the product <span className="arr">&rarr;</span>

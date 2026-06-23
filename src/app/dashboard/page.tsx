@@ -2,9 +2,9 @@ import { Suspense } from "react";
 import DashboardApp from "./DashboardApp";
 
 export const metadata = {
-  title: "Scaffolde — AI Verification Plane",
+  title: "Scaffolde: AI Verification Plane (Live Demo)",
   description:
-    "The live Scaffolde verification dashboard — every model, agent, skill, workflow, and session, independently verified. Inspect a real attestation proof.",
+    "The Scaffolde verification dashboard: a live, explorable demo. Inspect real attestation proofs across models, agents, skills, workflows, and sessions.",
 };
 
 export default function DashboardPage() {

@@ -19,8 +19,8 @@ export default function HeroSection() {
           </h1>
           <p className="lede">
             Scaffolde records what every model, agent, and workflow across your
-            business was asked, did, and proved — across Anthropic, OpenAI, and
-            Google — and attests it independently. The grader can&rsquo;t be the
+            business was asked, did, and proved: Anthropic, OpenAI, Google, xAI,
+            and open-source models. Attested independently. The grader can&rsquo;t be the
             graded.
           </p>
           <div className="cta">

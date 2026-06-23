@@ -14,7 +14,7 @@ export default function CoverageSection() {
           <div className="kicker">What Scaffolde covers</div>
           <h2>One plane, every surface.</h2>
           <p>
-            The grader can&rsquo;t be the graded — and that now spans your
+            The grader can&rsquo;t be the graded. That now spans your
             entire AI stack, not just a model&rsquo;s output.
           </p>
         </Reveal>

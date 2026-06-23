@@ -10,7 +10,7 @@ const THESIS = [
   {
     num: "01",
     h3: "An independent plane",
-    p: "Scaffolde sits outside Anthropic, OpenAI, and Google — recording and attesting what every model, agent, and workflow actually did, with no stake in any vendor’s reputation.",
+    p: "Scaffolde sits outside every model vendor: Anthropic, OpenAI, Google, xAI, and open-source providers. It records and attests what every model, agent, and workflow actually did, with no stake in any vendor’s reputation.",
   },
   {
     num: "02",
@@ -20,7 +20,7 @@ const THESIS = [
   {
     num: "03",
     h3: "Become the standard",
-    p: "The endgame is to be the notary for AI attestation — the layer every audited AI decision routes through. Narrow wedge, broad future.",
+    p: "The endgame is to be the notary for AI attestation: the layer every audited AI decision routes through. Narrow wedge, broad future.",
   },
 ];
 
@@ -35,7 +35,7 @@ export default function InvestorThesis() {
             Enterprises are putting AI into decisions they have to defend. The
             companies that build the models can&rsquo;t be the ones who certify
             the models worked. That independent verification layer doesn&rsquo;t
-            exist yet — and it&rsquo;s a category, not a feature.
+            exist yet. It&rsquo;s a category, not a feature.
           </p>
         </Reveal>
         <Reveal className="thesis-grid">

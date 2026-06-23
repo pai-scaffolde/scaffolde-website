@@ -19,7 +19,7 @@ export default function HowItWorks() {
           <p>
             Scaffolde sits outside the model vendors. It sets acceptance
             criteria before the work begins, then checks, evidences, and
-            attests the result — so the party proving the work has no stake in
+            attests the result. The party proving the work has no stake in
             the model&rsquo;s reputation.
           </p>
         </Reveal>
@@ -38,7 +38,7 @@ export default function HowItWorks() {
               <span className="step-n">1</span>
               <div>
                 <b>Criteria set up front.</b> Acceptance criteria are defined
-                before the AI does the work — so &ldquo;done&rdquo; is decided
+                before the AI does the work. &ldquo;Done&rdquo; is decided
                 independently, not after the fact.
               </div>
             </div>

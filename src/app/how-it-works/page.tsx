@@ -5,7 +5,7 @@ import SiteFooter from "../components/SiteFooter";
 import Reveal from "../components/Reveal";
 
 export const metadata: Metadata = {
-  title: "How it works — The independent AI verification layer | Scaffolde",
+  title: "How it works: The independent AI verification layer | Scaffolde",
   description:
     "Scaffolde sits outside the model vendors. Criteria are set before the work, the result is checked and evidenced, an independent party attests it, and anyone can audit the proof.",
 };
@@ -25,7 +25,7 @@ const FLOW = [
   {
     fn: "02 / ATTEST",
     title: "Independent signature",
-    body: "A party with no stake in the model signs the result — recording what was asked, what was done, and whether it passed.",
+    body: "A party with no stake in the model signs the result, recording what was asked, what was done, and whether it passed.",
   },
   {
     fn: "03 / PROVE",
@@ -35,7 +35,7 @@ const FLOW = [
   {
     fn: "04 / AUDIT",
     title: "Reportable record",
-    body: "Every proof rolls up into a running, queryable record — pass rates, provider coverage, and full history for any auditor.",
+    body: "Every proof rolls up into a running, queryable record: pass rates, provider coverage, and full history for any auditor.",
   },
 ];
 
@@ -50,7 +50,7 @@ export default function HowItWorksPage() {
           <div className="kicker">How it works</div>
           <h1>The grader can&rsquo;t be the graded.</h1>
           <p className="lede">
-            Scaffolde is an independent layer that sits outside the model vendors —
+            Scaffolde is an independent layer that sits outside the model vendors,
             between your AI and the people who must trust it. Here&rsquo;s how a run
             becomes a proof.
           </p>
@@ -83,10 +83,10 @@ export default function HowItWorksPage() {
               <h2 className="h2-tight">Why an outside party has to do the proving.</h2>
               <p>
                 When the company that builds the model also certifies that the model
-                worked, the certificate is worth nothing. Scaffolde sits in the
-                middle — connected to Anthropic, OpenAI, and Google, but owned by
-                none of them — so the party signing the proof has no stake in any
-                model&rsquo;s reputation.
+                worked, the certificate is worth nothing. Scaffolde connects to
+                Anthropic, OpenAI, Google, xAI, and open-source providers, but
+                is owned by none of them. The party signing the proof has no stake in
+                any model&rsquo;s reputation.
               </p>
               <p>
                 That independence is the product. It&rsquo;s what makes a Scaffolde
@@ -139,7 +139,7 @@ export default function HowItWorksPage() {
                 <span className="step-n">B</span>
                 <div>
                   <b>The action trace.</b> Every step the AI took to reach its
-                  result — tools, calls, and intermediate work.
+                  result: tools, calls, and intermediate work.
                 </div>
               </div>
               <div className="step">
@@ -159,8 +159,8 @@ export default function HowItWorksPage() {
               <div className="step">
                 <span className="step-n">E</span>
                 <div>
-                  <b>The vendor boundary.</b> Which provider and model ran —
-                  recorded, never trusted to self-certify.
+                  <b>The vendor boundary.</b> Which provider and model ran.
+                  Recorded, never trusted to self-certify.
                 </div>
               </div>
             </div>

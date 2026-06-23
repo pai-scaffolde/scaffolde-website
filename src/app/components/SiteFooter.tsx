@@ -15,7 +15,7 @@ export default function SiteFooter() {
           />
           <p>
             The independent AI verification &amp; audit plane. Across Anthropic,
-            OpenAI &amp; Google.
+            OpenAI, Google, xAI, and open-source models.
           </p>
         </div>
         <div className="footer-cols">

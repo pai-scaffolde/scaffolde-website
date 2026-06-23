@@ -17,13 +17,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Scaffolde — Independent proof of what your AI actually did",
+  title: "Scaffolde: Independent proof of what your AI actually did",
   description:
-    "Scaffolde is the independent verification and audit plane for AI-native teams. Tamper-evident proof of what every model, agent, and workflow was asked, did, and proved — across Anthropic, OpenAI, and Google.",
+    "Scaffolde is the independent verification and audit plane for AI-native teams. Tamper-evident proof of what every model, agent, and workflow was asked, did, and proved: across Anthropic, OpenAI, Google, xAI, and open-source models.",
   openGraph: {
-    title: "Scaffolde — Independent proof of what your AI actually did",
+    title: "Scaffolde: Independent proof of what your AI actually did",
     description:
-      "The independent AI verification & audit plane. Tamper-evident proof of what every model, agent, and workflow was asked, did, and proved — across Anthropic, OpenAI & Google. The grader can't be the graded.",
+      "The independent AI verification & audit plane. Tamper-evident proof of what every model, agent, and workflow was asked, did, and proved: Anthropic, OpenAI, Google, xAI, open-source. The grader can't be the graded.",
     siteName: "Scaffolde",
   },
 };

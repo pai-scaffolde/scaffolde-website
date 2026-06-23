@@ -12,6 +12,10 @@ export default function TrustStrip() {
         <span className="strip-prov">OpenAI GPT</span>
         <span className="strip-dot">·</span>
         <span className="strip-prov">Google Gemini</span>
+        <span className="strip-dot">·</span>
+        <span className="strip-prov">xAI Grok</span>
+        <span className="strip-dot">·</span>
+        <span className="strip-prov">Open-source models</span>
         <span className="strip-sep"></span>
         <span className="strip-note">
           Agents · Skills · Workflows · Sessions · Learnings · Memories
