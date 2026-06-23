@@ -1,0 +1,30 @@
+<svg width="248" height="56" viewBox="0 0 248 56" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Scaffolde — AI-verification">
+  <defs>
+    <linearGradient id="layTop" x1="14" y1="10" x2="42" y2="26" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#60A5FA"/><stop offset="1" stop-color="#3B82F6"/>
+    </linearGradient>
+    <linearGradient id="layMid" x1="14" y1="20" x2="42" y2="36" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3B82F6"/><stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+    <linearGradient id="layBot" x1="14" y1="30" x2="42" y2="46" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2563EB"/><stop offset="1" stop-color="#1D4ED8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Layered-stack mark: three isometric layers = "scaffold". Top layer carries a checkmark = "verified". -->
+  <g stroke-linejoin="round" stroke-linecap="round">
+    <!-- bottom layer -->
+    <path d="M28 38 L42 45 L28 52 L14 45 Z" fill="url(#layBot)"/>
+    <!-- middle layer -->
+    <path d="M28 29 L42 36 L28 43 L14 36 Z" fill="url(#layMid)"/>
+    <!-- top layer -->
+    <path d="M28 11 L42 18 L28 25 L14 18 Z" fill="url(#layTop)"/>
+    <!-- checkmark on the top layer (verification) -->
+    <path d="M23 18.2 L26.4 21.4 L33.2 15.2" stroke="#FFFFFF" stroke-width="3" fill="none"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="62" y="29" font-family="'Satoshi','Geist',-apple-system,Segoe UI,Roboto,sans-serif" font-size="25" font-weight="800" letter-spacing="-0.5" fill="#0F172A">Scaffolde</text>
+  <!-- Descriptor: double-down on AI-verification -->
+  <text x="63" y="45" font-family="'Geist Mono','Geist',ui-monospace,monospace" font-size="10.5" font-weight="600" letter-spacing="2.4" fill="#2563EB">AI-VERIFICATION</text>
+</svg>

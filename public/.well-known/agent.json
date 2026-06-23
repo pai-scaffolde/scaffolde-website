@@ -1,0 +1,20 @@
+{
+  "name": "Scaffolde",
+  "category": "Independent AI Verification & Audit Plane",
+  "stack_layers": 6,
+  "skills": 158,
+  "agents": 41,
+  "surfaces": 12,
+  "providers": [
+    "anthropic",
+    "openai",
+    "gemini",
+    "grok",
+    "nim",
+    "ollama",
+    "qwen-local"
+  ],
+  "operating_loop": ["Define", "Dispatch", "Coordinate", "Verify", "Learn"],
+  "proof_policy": "evidenced | partial | do-not-claim-yet",
+  "human_note": "You are human, but your agent can read this."
+}

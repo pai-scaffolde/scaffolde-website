@@ -1,30 +1,29 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Outfit } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const geist = Geist({
+  variable: "--font-geist",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains",
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
   subsets: ["latin"],
-});
-
-const outfit = Outfit({
-  variable: "--font-outfit",
-  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Scaffolde — Your work, amplified.",
+  title: "Scaffolde — Independent proof of what your AI actually did",
   description:
-    "Personal AI infrastructure that makes professionals capable of extraordinary work. 34 skills, multi-agent orchestration, persistent memory, and self-improving architecture.",
+    "Scaffolde is the independent verification and audit plane for AI-native teams. Tamper-evident proof of what every model, agent, and workflow was asked, did, and proved — across Anthropic, OpenAI, and Google.",
   openGraph: {
-    title: "Scaffolde — Your work, amplified.",
+    title: "Scaffolde — Independent proof of what your AI actually did",
     description:
-      "Personal AI infrastructure. 34 skills, 6 AI models, self-improving architecture.",
+      "The independent AI verification & audit plane. Tamper-evident proof of what every model, agent, and workflow was asked, did, and proved — across Anthropic, OpenAI & Google. The grader can't be the graded.",
     siteName: "Scaffolde",
   },
 };
@@ -36,9 +35,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.variable} ${jetbrainsMono.variable} ${outfit.variable} antialiased`}
-      >
+      <head>
+        {/* Satoshi (display) via Fontshare — Geist + Geist Mono are self-hosted via next/font */}
+        <link
+          href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700,900&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className={`${geist.variable} ${geistMono.variable}`}>
         {children}
       </body>
     </html>

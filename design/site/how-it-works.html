@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>How it works — The independent AI verification layer | Scaffolde</title>
+<meta name="description" content="Scaffolde sits outside the model vendors. Criteria are set before the work, the result is checked and evidenced, an independent party attests it, and anyone can audit the proof.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav id="nav"><div class="wrap nav-inner">
+  <a class="logo" href="index.html" aria-label="Scaffolde home">
+    <img src="../brand/scaffolde-mark.svg" alt="" class="logo-mark" width="30" height="30"/>
+    <span class="logo-word">Scaffolde</span>
+  </a>
+  <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="navlinks" id="navlinks">
+    <a href="product.html">Product</a>
+    <a href="how-it-works.html">How it works</a>
+    <a href="investors.html">Investors</a>
+    <div class="nav-cta">
+      <a href="../demo/index.html" class="navlink-signin">Sign in</a>
+      <a href="../demo/index.html" class="btn btn-primary btn-sm">Get started</a>
+    </div>
+  </div>
+</div></nav>
+
+<!-- PAGE HERO -->
+<header class="page-hero"><div class="wrap reveal">
+  <div class="kicker">How it works</div>
+  <h1>The grader can&rsquo;t be the graded.</h1>
+  <p class="lede">Scaffolde is an independent layer that sits outside the model vendors — between your AI and the people who must trust it. Here&rsquo;s how a run becomes a proof.</p>
+  <div class="cta">
+    <a href="../demo/index.html" class="btn btn-primary">Inspect a live proof <span class="arr">&rarr;</span></a>
+    <a href="product.html" class="btn btn-ghost">See the product</a>
+  </div>
+</div></header>
+
+<!-- THE INDEPENDENT LAYER -->
+<section class="sec"><div class="wrap">
+  <div class="split reveal">
+    <div class="split-media">
+      <img src="../imagery/scaffolde-plane-diagram.png" alt="Diagram of Scaffolde as the independent verification layer between AI providers and the enterprise" width="900" height="640"/>
+    </div>
+    <div class="split-body">
+      <div class="kicker">The independent layer</div>
+      <h2 class="h2-tight">Why an outside party has to do the proving.</h2>
+      <p>When the company that builds the model also certifies that the model worked, the certificate is worth nothing. Scaffolde sits in the middle — connected to Anthropic, OpenAI, and Google, but owned by none of them — so the party signing the proof has no stake in any model&rsquo;s reputation.</p>
+      <p>That independence is the product. It&rsquo;s what makes a Scaffolde attestation something you can hand to a regulator, an auditor, or a customer and have it mean something.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- THE FLOW -->
+<section class="alt sec"><div class="wrap">
+  <div class="sec-head sec-head-center reveal">
+    <div class="kicker">The flow</div>
+    <h2>Verify &rarr; attest &rarr; prove &rarr; audit.</h2>
+    <p>Four steps turn an AI run into a tamper-evident record anyone can check.</p>
+  </div>
+  <div class="flow reveal">
+    <div class="flow-step">
+      <span class="fn">01 / VERIFY</span>
+      <h3>Criteria, then check</h3>
+      <p>Acceptance criteria are set <em>before</em> the AI does the work. When the run finishes, its ask, actions, and output are checked against those criteria.</p>
+    </div>
+    <div class="flow-step">
+      <span class="fn">02 / ATTEST</span>
+      <h3>Independent signature</h3>
+      <p>A party with no stake in the model signs the result — recording what was asked, what was done, and whether it passed.</p>
+    </div>
+    <div class="flow-step">
+      <span class="fn">03 / PROVE</span>
+      <h3>Tamper-evident bundle</h3>
+      <p>The action trace, evidence, and attestation are sealed into a SHA-256 proof bundle you can open, export, and verify.</p>
+    </div>
+    <div class="flow-step">
+      <span class="fn">04 / AUDIT</span>
+      <h3>Reportable record</h3>
+      <p>Every proof rolls up into a running, queryable record — pass rates, provider coverage, and full history for any auditor.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- WHAT GETS RECORDED -->
+<section class="sec"><div class="wrap">
+  <div class="split split-rev reveal">
+    <div class="split-body">
+      <div class="kicker">Inside a proof</div>
+      <h2 class="h2-tight">What every record contains.</h2>
+      <div class="step"><span class="step-n">A</span><div><b>The original ask.</b> The exact request the AI was given, captured verbatim.</div></div>
+      <div class="step"><span class="step-n">B</span><div><b>The action trace.</b> Every step the AI took to reach its result — tools, calls, and intermediate work.</div></div>
+      <div class="step"><span class="step-n">C</span><div><b>The proof bundle.</b> Evidence checked against the up-front criteria, sealed and hashed.</div></div>
+      <div class="step"><span class="step-n">D</span><div><b>The independent attestation.</b> The signature of the party that has no stake in the model.</div></div>
+      <div class="step"><span class="step-n">E</span><div><b>The vendor boundary.</b> Which provider and model ran — recorded, never trusted to self-certify.</div></div>
+    </div>
+    <div class="split-media">
+      <img src="../imagery/real-session-detail.png" alt="Session detail with verification proof: the ask, action trace, proof bundle, sealed attestation, and vendor boundary" width="1600" height="1000"/>
+    </div>
+  </div>
+</div></section>
+
+<!-- PULL QUOTE -->
+<section class="alt sec"><div class="wrap reveal">
+  <div class="pull">
+    <q>You can&rsquo;t trust an AI&rsquo;s word that it did the work. You can trust an independent, tamper-evident record of how it did the work.</q>
+    <div class="attr">The Scaffolde principle</div>
+  </div>
+</div></section>
+
+<!-- CTA -->
+<section class="cta-band"><div class="wrap cta-band-inner reveal">
+  <div>
+    <h2>See a real proof.</h2>
+    <p>Open the live dashboard and walk a single run from ask to attestation yourself.</p>
+  </div>
+  <div class="cta-band-actions">
+    <a href="../demo/index.html" class="btn btn-primary btn-lg">Inspect a live proof <span class="arr">&rarr;</span></a>
+    <a href="product.html" class="btn btn-ghost btn-lg">See the product</a>
+  </div>
+</div></section>
+
+<!-- FOOTER -->
+<footer class="footer"><div class="wrap footer-grid">
+  <div class="footer-brand">
+    <img src="../brand/scaffolde-logo.svg" alt="Scaffolde — AI verification" height="42"/>
+    <p>The independent AI verification &amp; audit plane. Across Anthropic, OpenAI &amp; Google.</p>
+  </div>
+  <div class="footer-cols">
+    <div class="footer-col">
+      <span class="footer-h">Product</span>
+      <a href="product.html">Overview</a>
+      <a href="how-it-works.html">How it works</a>
+      <a href="../demo/index.html">Live dashboard</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-h">Company</span>
+      <a href="investors.html">Investors</a>
+      <a href="https://calendar.app.google/T9vjWKpBvC9w3APV6">Book a call</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-h">Get started</span>
+      <a href="../demo/index.html">Sign in</a>
+      <a href="../demo/index.html">Inspect a live proof</a>
+    </div>
+  </div>
+</div>
+<div class="wrap footer-base">
+  <span>&copy; 2026 Scaffolde. Founded by Gary Noonan.</span>
+  <span class="footer-mono">The grader can&rsquo;t be the graded.</span>
+</div></footer>
+
+<script src="site.js"></script>
+</body></html>

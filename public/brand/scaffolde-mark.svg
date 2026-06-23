@@ -1,0 +1,13 @@
+<svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Scaffolde mark">
+  <defs>
+    <linearGradient id="mTop" x1="14" y1="8" x2="42" y2="24" gradientUnits="userSpaceOnUse"><stop stop-color="#60A5FA"/><stop offset="1" stop-color="#3B82F6"/></linearGradient>
+    <linearGradient id="mMid" x1="14" y1="20" x2="42" y2="36" gradientUnits="userSpaceOnUse"><stop stop-color="#3B82F6"/><stop offset="1" stop-color="#2563EB"/></linearGradient>
+    <linearGradient id="mBot" x1="14" y1="32" x2="42" y2="48" gradientUnits="userSpaceOnUse"><stop stop-color="#2563EB"/><stop offset="1" stop-color="#1D4ED8"/></linearGradient>
+  </defs>
+  <g stroke-linejoin="round" stroke-linecap="round">
+    <path d="M28 38 L44 46 L28 54 L12 46 Z" fill="url(#mBot)"/>
+    <path d="M28 28 L44 36 L28 44 L12 36 Z" fill="url(#mMid)"/>
+    <path d="M28 8 L44 16 L28 24 L12 16 Z" fill="url(#mTop)"/>
+    <path d="M22 16.2 L26.2 20 L34.4 12" stroke="#FFFFFF" stroke-width="3.6" fill="none"/>
+  </g>
+</svg>
