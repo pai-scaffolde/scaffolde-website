@@ -1090,31 +1090,87 @@ p {
   gap: 18px;
 }
 .tr-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
   background: #fff;
   border: 1px solid var(--border);
   border-radius: 14px;
-  padding: 24px;
+  padding: 26px 24px;
   box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+/* status-colored top rail — makes the three states scannable at a glance */
+.tr-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: var(--tr-accent, var(--border));
+}
+.tr-card.is-live {
+  --tr-accent: var(--ok);
+}
+.tr-card.is-prog {
+  --tr-accent: var(--amber);
+}
+.tr-card.is-open {
+  --tr-accent: var(--cobalt);
+}
+/* clickable cards (Live product → /dashboard, The raise → /investors) */
+a.tr-card {
+  text-decoration: none;
+  transition: 0.22s var(--ease);
+}
+a.tr-card:hover {
+  border-color: var(--tr-accent);
+  box-shadow: 0 18px 44px -18px rgba(15, 23, 42, 0.24);
+  transform: translateY(-3px);
 }
 .tr-card .lab {
+  display: block;
   font-family: var(--mono);
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.09em;
   color: var(--muted);
 }
 .tr-card .val {
+  display: block;
   font-family: var(--display);
   font-weight: 800;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   color: var(--text);
-  margin-top: 8px;
-  line-height: 1.1;
+  margin-top: 10px;
+  line-height: 1.15;
 }
 .tr-card .desc {
+  display: block;
   color: var(--muted);
-  font-size: 0.92rem;
-  margin-top: 8px;
+  font-size: 0.94rem;
+  line-height: 1.55;
+  margin-top: 10px;
+}
+/* footer pinned to the bottom so every status badge sits on one baseline */
+.tr-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 20px;
+}
+.tr-go {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--cobalt-deep);
+  white-space: nowrap;
+}
+a.tr-card:hover .arr {
+  transform: translateX(3px);
 }
 .tr-status {
   display: inline-flex;
@@ -1124,7 +1180,6 @@ p {
   font-weight: 600;
   border-radius: 999px;
   padding: 3px 10px;
-  margin-top: 12px;
 }
 .tr-live {
   color: var(--ok);
