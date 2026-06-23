@@ -724,11 +724,20 @@ p {
   color: var(--cobalt-deep);
 }
 
-/* reveal-on-scroll */
+/* reveal-on-scroll
+   IMPORTANT (anti-blank-page rule): content is VISIBLE BY DEFAULT. The
+   hidden-then-reveal animation is an enhancement that ONLY applies once JS
+   has mounted and tagged <html class="js"> (set by Reveal.tsx). If JS never
+   runs — SSR first paint, JS disabled, or a hung observer — every .reveal
+   stays fully opaque. The observer also has its own 2.5s safety fallback. */
 .reveal {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+}
+html.js .reveal:not(.in) {
   opacity: 0;
   transform: translateY(18px);
-  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
 }
 .reveal.in {
   opacity: 1;
@@ -1123,13 +1132,78 @@ p {
   background: #fef6e7;
   border: 1px solid #fce3b5;
 }
+.tr-open {
+  color: var(--cobalt-deep);
+  background: var(--tint);
+  border: 1px solid #c7d9ff;
+}
+
+/* ===== homepage-richer additions (ported from the verification bundle) ===== */
+/* proof "five parts" list (A–E inspectable parts) */
+.proof-parts {
+  list-style: none;
+  margin: 22px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+.proof-parts li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.proof-key {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: var(--tint);
+  color: var(--cobalt-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.proof-parts b {
+  color: var(--text);
+}
+.proof-parts .pp-body {
+  font-size: 1rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+/* light thesis grid (investor thesis cards on white, not navy) */
+.thesis-light {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.thesis-light .thesis-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+}
+.thesis-light .thesis-card h3 {
+  color: var(--text);
+}
+.thesis-light .thesis-card p {
+  color: var(--muted);
+}
+.thesis-light .thesis-card .num {
+  color: var(--cobalt);
+}
 
 @media (max-width: 900px) {
   .feat-grid,
   .flow,
   .thesis-grid,
+  .thesis-light,
   .traction,
-  .deflist {
+  .deflist,
+  .proof-parts {
     grid-template-columns: 1fr;
   }
   .founder {
