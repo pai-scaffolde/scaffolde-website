@@ -724,13 +724,20 @@ p {
   color: var(--cobalt-deep);
 }
 
-/* reveal-on-scroll */
+/* reveal-on-scroll — progressive enhancement.
+   Visible by default; only an "armed" element (JS mounted, observer present,
+   motion allowed) gets the hidden-then-animate treatment. A JS failure can
+   never leave content blank. */
 .reveal {
+  opacity: 1;
+  transform: none;
+}
+.reveal-armed {
   opacity: 0;
   transform: translateY(18px);
   transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
 }
-.reveal.in {
+.reveal-armed.in {
   opacity: 1;
   transform: none;
 }
@@ -828,7 +835,8 @@ p {
   .hero-shot img {
     animation: none;
   }
-  .reveal {
+  .reveal,
+  .reveal-armed {
     opacity: 1;
     transform: none;
     transition: none;

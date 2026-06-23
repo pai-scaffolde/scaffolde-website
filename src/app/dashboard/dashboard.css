@@ -21,10 +21,24 @@
   --pending: #d97706;
   --pending-bg: #fef3e2;
   --error: #dc2626;
-  --m-opus: #2563eb;
-  --m-sonnet: #7c9cf6;
-  --m-gpt: #16a34a;
-  --m-gemini: #d97706;
+  /* Brand-aligned model colors (by provider). Cobalt remains the app accent;
+     these are deliberately distinct from it so the model mix reads by brand. */
+  --m-opus: #d97757;        /* Anthropic coral/clay — Claude opus */
+  --m-sonnet: #c9684a;      /* Anthropic — Claude sonnet (deeper clay) */
+  --m-haiku: #e0987c;       /* Anthropic — Claude haiku (lighter clay) */
+  --m-fable: #b85440;       /* Anthropic — Claude fable (darkest clay) */
+  --m-gpt: #0d0d0d;         /* OpenAI — monochrome near-black */
+  --m-gpt-2: #4b5563;       /* OpenAI — 2nd model (grey) */
+  --m-gemini: #4285f4;      /* Google — Gemini flash (Google blue) */
+  --m-gemini-pro: #8e5bd4;  /* Google — Gemini pro (blue→purple) */
+  --m-deepseek: #4d6bfe;    /* DeepSeek blue */
+  --m-qwen: #6e56cf;        /* Alibaba Qwen — purple/indigo */
+  --m-cursor: #18181b;      /* Cursor — mono */
+  --m-glm: #14b8a6;         /* Zhipu GLM — teal */
+  --m-grok: #000000;        /* xAI Grok — black */
+  --m-kimi: #6d28d9;        /* Moonshot Kimi — violet */
+  --m-minimax: #e11d48;     /* MiniMax — rose */
+  --m-nemotron: #76b900;    /* NVIDIA — NVIDIA green */
   --r-sm: 8px;
   --r-md: 12px;
   --r-lg: 16px;
@@ -180,6 +194,13 @@
   display: grid;
   place-items: center;
   flex: none;
+}
+.sca-dash .ws-avatar.ws-mark {
+  background: #eaf1ff;
+  border: 1px solid #d7e3ff;
+}
+.sca-dash .ws-avatar.ws-mark svg {
+  display: block;
 }
 .sca-dash .ws-text {
   flex: 1;
@@ -553,13 +574,20 @@
 .sca-dash .donut-wrap {
   position: relative;
   flex: none;
+  width: 128px;
+  height: 128px;
+  line-height: 0; /* kill descender whitespace so the ring box is exactly 128px */
 }
 .sca-dash .donut-center {
   position: absolute;
   inset: 0;
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  line-height: 1;
+  pointer-events: none;
 }
 .sca-dash .donut-center b {
   font-size: 20px;
@@ -571,6 +599,8 @@
 .sca-dash .donut-center span {
   font-size: 10.5px;
   color: var(--muted);
+  margin-top: 3px;
+  line-height: 1;
 }
 .sca-dash .model-list {
   flex: 1;
@@ -1499,5 +1529,173 @@
   }
   .sca-dash .sidebar {
     display: none;
+  }
+}
+
+/* ============================================================ MODELS PAGE — provider grouping */
+.sca-dash .models-table .provider-row td {
+  background: var(--bg-alt);
+  padding: 9px 16px;
+  border-top: 1px solid var(--border);
+}
+.sca-dash .provider-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+.sca-dash .provider-name i {
+  width: 9px;
+  height: 9px;
+  border-radius: 3px;
+  flex: none;
+}
+.sca-dash .provider-count {
+  margin-left: 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--faint);
+}
+
+/* ============================================================ CONNECTED SURFACES */
+.sca-dash .surf-rollup {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+.sca-dash .surf-rollup-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--verified);
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.16);
+}
+.sca-dash .surf-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.sca-dash .surf-tile {
+  position: relative;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--r-lg);
+  padding: 18px 20px;
+  box-shadow: var(--shadow-card);
+  transition: border-color 0.12s, box-shadow 0.12s, transform 0.12s;
+  overflow: hidden;
+}
+.sca-dash .surf-tile::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--surf-accent, var(--cobalt));
+}
+.sca-dash .surf-tile:hover {
+  border-color: #cbd5e1;
+  box-shadow: var(--shadow-pop);
+  transform: translateY(-1px);
+}
+.sca-dash .surf-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.sca-dash .surf-name {
+  font-size: 16px;
+  font-weight: 680;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+.sca-dash .surf-tag {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 1px;
+}
+.sca-dash .surf-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex: none;
+  margin-top: 6px;
+}
+.sca-dash .surf-dot.live {
+  background: var(--verified);
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.16);
+}
+.sca-dash .surf-dot.warn {
+  background: var(--pending);
+  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.16);
+}
+.sca-dash .surf-dot.neutral {
+  background: var(--faint);
+  box-shadow: 0 0 0 3px rgba(148, 163, 184, 0.16);
+}
+.sca-dash .surf-stat {
+  margin-top: 14px;
+  font-size: 15px;
+  font-weight: 620;
+  color: var(--text);
+}
+.sca-dash .surf-sub {
+  margin-top: 4px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+.sca-dash .surf-foot {
+  margin-top: 16px;
+}
+.sca-dash .surf-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  background: #fff;
+  color: var(--cobalt-deep, #1d4ed8);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s;
+}
+.sca-dash .surf-link:hover {
+  background: var(--bg-alt);
+  border-color: #cbd5e1;
+}
+.sca-dash .surf-link svg {
+  width: 14px;
+  height: 14px;
+}
+.sca-dash .surf-port {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--faint);
+}
+.sca-dash .surf-nolink {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--faint);
+}
+@media (max-width: 1024px) {
+  .sca-dash .surf-grid {
+    grid-template-columns: 1fr;
   }
 }

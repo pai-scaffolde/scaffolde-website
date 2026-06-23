@@ -4,9 +4,18 @@ import { useEffect, useRef, type ReactNode } from "react";
 import Link from "next/link";
 
 /**
- * Reveal-on-scroll wrapper — faithful port of the IntersectionObserver
- * behavior in design/site/site.js. Honors prefers-reduced-motion (the
- * element appears immediately, matching the CSS reduced-motion rule).
+ * Reveal-on-scroll wrapper — progressive enhancement.
+ *
+ * Content is ALWAYS visible by default (CSS `.reveal` has no hide rule on its
+ * own). The entrance animation is opt-in: only when JS mounts, supports
+ * IntersectionObserver, and the user has NOT requested reduced motion do we
+ * "arm" the element (add `.reveal-armed`, which sets opacity:0 + translateY),
+ * then promote it to `.in` once it scrolls into view (or immediately if it is
+ * already intersecting on mount, e.g. above-the-fold heroes).
+ *
+ * This means a JS failure, hydration delay, missing IntersectionObserver, or
+ * reduced-motion preference can NEVER leave content blank — the worst case is
+ * simply "no entrance animation", with content fully visible.
  *
  * Pass `href` to render the revealed element as a Next.js <Link> (used by
  * the homepage audience-fork cards). Otherwise renders a <div>.
@@ -27,11 +36,31 @@ export default function Reveal({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    // Reduced motion or no observer support: leave content visible, no animation.
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduce || !("IntersectionObserver" in window)) {
       el.classList.add("in");
       return;
     }
+
+    // Arm the entrance animation now that we know JS + observer are available.
+    // (Hidden state is applied here, never by default CSS, so SSR/no-JS is safe.)
+    el.classList.add("reveal-armed");
+
+    const reveal = () => {
+      el.classList.add("in");
+    };
+
+    // Already in view on mount (above-the-fold) — reveal immediately so the
+    // hero never depends on a scroll event that won't fire.
+    const rect = el.getBoundingClientRect();
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    if (rect.top < vh && rect.bottom > 0) {
+      reveal();
+      return;
+    }
+
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {

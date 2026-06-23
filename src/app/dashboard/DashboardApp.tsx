@@ -103,6 +103,8 @@ export default function DashboardApp() {
       close: '<path d="M18 6 6 18M6 6l12 12"/>',
       external:
         '<path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>',
+      surfaces:
+        '<rect width="7" height="7" x="3" y="3" rx="1.5"/><rect width="7" height="7" x="14" y="3" rx="1.5"/><rect width="7" height="7" x="3" y="14" rx="1.5"/><rect width="7" height="7" x="14" y="14" rx="1.5"/>',
     };
     const svg = (path: string, cls = "") =>
       `<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">${path}</svg>`;
@@ -125,7 +127,8 @@ export default function DashboardApp() {
       { id: "skills", label: "Skills", icon: ICON.skills, count: "116" },
       { id: "workflows", label: "Workflows", icon: ICON.workflows, count: "24" },
       { id: "projects", label: "Projects", icon: ICON.projects, count: "18" },
-      { id: "models", label: "Models", icon: ICON.models, count: "4" },
+      { id: "models", label: "Models", icon: ICON.models, count: "17" },
+      { id: "connected", label: "Connected Surfaces", icon: ICON.surfaces, count: "5" },
       { section: "Knowledge" },
       { id: "learnings", label: "Learnings", icon: ICON.learnings, count: "342" },
       { id: "memories", label: "Memories", icon: ICON.memories, count: "1.1K" },
@@ -137,18 +140,39 @@ export default function DashboardApp() {
     ];
 
     /* ============================================================ MOCK DATA */
-    const MODELS = [
-      { id: "claude-opus-4-8", share: 38, pass: 99.1, color: "var(--m-opus)" },
-      { id: "claude-sonnet-4-6", share: 34, pass: 98.7, color: "var(--m-sonnet)" },
-      { id: "gpt-5.5", share: 18, pass: 97.9, color: "var(--m-gpt)" },
-      { id: "gemini-3.5-flash", share: 10, pass: 98.2, color: "var(--m-gemini)" },
-    ];
+    // Provider-brand color for every model in the catalog (shared by the
+    // Overview mix, Models page, chips, legends, and bars).
     const MODEL_COLOR: Record<string, string> = {
       "claude-opus-4-8": "var(--m-opus)",
       "claude-sonnet-4-6": "var(--m-sonnet)",
+      "claude-haiku-4-5": "var(--m-haiku)",
+      "claude-fable-5": "var(--m-fable)",
       "gpt-5.5": "var(--m-gpt)",
+      "gpt-5.4": "var(--m-gpt-2)",
       "gemini-3.5-flash": "var(--m-gemini)",
+      "gemini-3.1-pro": "var(--m-gemini-pro)",
+      "deepseek-v4": "var(--m-deepseek)",
+      "qwen3.5-397b": "var(--m-qwen)",
+      "qwen-local": "var(--m-qwen)",
+      "glm-5.1": "var(--m-glm)",
+      grok: "var(--m-grok)",
+      "kimi-k2.6": "var(--m-kimi)",
+      "minimax-m3": "var(--m-minimax)",
+      "nemotron-3-ultra": "var(--m-nemotron)",
+      cursor: "var(--m-cursor)",
     };
+    // Overview "Model mix" — top models by usage, brand-colored. Includes
+    // DeepSeek / Qwen / Cursor / GLM alongside the leaders.
+    const MODELS = [
+      { id: "claude-opus-4-8", share: 31, pass: 99.1, color: MODEL_COLOR["claude-opus-4-8"] },
+      { id: "claude-sonnet-4-6", share: 27, pass: 98.7, color: MODEL_COLOR["claude-sonnet-4-6"] },
+      { id: "gpt-5.5", share: 15, pass: 97.9, color: MODEL_COLOR["gpt-5.5"] },
+      { id: "gemini-3.5-flash", share: 9, pass: 98.2, color: MODEL_COLOR["gemini-3.5-flash"] },
+      { id: "deepseek-v4", share: 7, pass: 98.0, color: MODEL_COLOR["deepseek-v4"] },
+      { id: "qwen3.5-397b", share: 5, pass: 97.6, color: MODEL_COLOR["qwen3.5-397b"] },
+      { id: "glm-5.1", share: 4, pass: 97.8, color: MODEL_COLOR["glm-5.1"] },
+      { id: "cursor", share: 2, pass: 98.4, color: MODEL_COLOR["cursor"] },
+    ];
 
     type Agent = {
       name: string;
@@ -292,7 +316,7 @@ export default function DashboardApp() {
     }
     function overviewView() {
       return `<div class="view">
-        ${headHTML("Overview", "Independently verified view of every model, agent, and session across Acme Corp.")}
+        ${headHTML("Overview", "Independently verified view of every model, agent, and session across Scaffolde.")}
 
         <div class="kpis k4">
           ${kpiCard(ICON.check, "Verified Runs", "24,815", "12.4%", "vs prev. 30d")}
@@ -302,8 +326,8 @@ export default function DashboardApp() {
         </div>
         <div class="kpis k3">
           ${kpiCard(ICON.agents, "Active Agents", "37", "3", "newly verified")}
-          ${kpiCard(ICON.sessions, "Sessions Verified", "12,904", "11.0%", "vs prev. 30d")}
-          ${kpiCard(ICON.models, "Models in Use", "4", "1", "added gemini-3.5")}
+          ${kpiCard(ICON.sessions, "Scaffolde-managed sessions", "12,904", "11.0%", "vs prev. 30d")}
+          ${kpiCard(ICON.models, "Models in Use", "17", "4", "newly verified")}
         </div>
 
         <div class="grid-2">
@@ -398,7 +422,7 @@ export default function DashboardApp() {
       return `<div class="view">
         ${headHTML("Sessions", "Every AI session is a verified unit of work — click a session to see what it did, learned, and proved.")}
         <div class="kpis k4">
-          ${kpiCard(ICON.sessions, "Sessions Verified", "12,904", "11.0%", "vs prev. 30d")}
+          ${kpiCard(ICON.sessions, "Scaffolde-managed sessions", "12,904", "11.0%", "vs prev. 30d")}
           ${kpiCard(ICON.clock, "Median Duration", "4m 38s", "6.2%", "faster", "down")}
           ${kpiCard(ICON.bolt, "Avg Tokens / Session", "41.8K", "3.4%", "vs prev. 30d")}
           ${kpiCard(ICON.shield, "Verified %", "97.9%", "0.8%", "vs prev. 30d")}
@@ -484,7 +508,7 @@ export default function DashboardApp() {
         <div class="page-head">
           <div style="display:flex;align-items:center;gap:14px">
             <div><h1 class="page-title">Live Observability</h1>
-            <p class="page-sub">AI activity being independently verified across Acme Corp, right now.</p></div>
+            <p class="page-sub">AI activity being independently verified across Scaffolde, right now.</p></div>
           </div>
           <div class="head-actions">
             <span class="live-badge"><span class="ld"></span>LIVE</span>
@@ -514,6 +538,11 @@ export default function DashboardApp() {
     }
 
     let LIVE_TIMERS: Array<ReturnType<typeof setTimeout>> = [];
+    // Generation token: every stopLive() bumps it so any in-flight timer
+    // callback that already fired can detect it is stale and refuse to
+    // re-arm itself. This guarantees the page reaches document-idle on any
+    // non-Live view (and on Live under reduced-motion) — no orphan timers.
+    let liveGen = 0;
     const liveCounters = { runHr: 1284, tok: 3.41, agents: 29, passNum: 984 };
     const SPARK = Array.from({ length: 30 }, () => 30 + Math.floor(Math.random() * 60));
     function tickKpi(id: string, val: string) {
@@ -542,13 +571,17 @@ export default function DashboardApp() {
         <path d="${line}" fill="none" stroke="#2563EB" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`;
     }
     function startLive() {
-      if (REDUCED) {
-        drawSpark();
-        return;
-      }
+      // Reduced motion OR not actually on the Live view → draw the static
+      // spark once and start NO timers. Page stays idle.
       drawSpark();
+      if (REDUCED || activeView !== "live") return;
+
+      const gen = liveGen;
+      const alive = () => gen === liveGen && activeView === "live";
+
       LIVE_TIMERS.push(
         setInterval(() => {
+          if (!alive()) return;
           liveCounters.runHr += Math.floor(Math.random() * 4);
           liveCounters.tok = +(liveCounters.tok + Math.random() * 0.05).toFixed(2);
           liveCounters.agents = 27 + Math.floor(Math.random() * 8);
@@ -563,6 +596,7 @@ export default function DashboardApp() {
         const delay = 2000 + Math.random() * 1000;
         LIVE_TIMERS.push(
           setTimeout(() => {
+            if (!alive()) return;
             const stream = byId("stream");
             if (stream) {
               const e = liveEvent();
@@ -572,13 +606,14 @@ export default function DashboardApp() {
               if (SPARK.length > 30) SPARK.shift();
               drawSpark();
             }
-            if (activeView === "live") schedule();
+            if (alive()) schedule();
           }, delay)
         );
       }
       schedule();
     }
     function stopLive() {
+      liveGen++; // invalidate any in-flight timer callbacks
       LIVE_TIMERS.forEach((t) => {
         clearInterval(t as unknown as number);
         clearTimeout(t);
@@ -587,12 +622,29 @@ export default function DashboardApp() {
     }
 
     /* ============================================================ MODELS VIEW */
+    // Full model catalog — provider-grouped. The Overview mix shows the top
+    // few by usage; this page is the complete inventory under verification.
     const MODEL_ROWS = [
-      { id: "claude-opus-4-8", provider: "Anthropic", share: 38, tokens: "471M", spend: "$22.9K", pass: 99.1, sessions: 4218, cost: "$48.60", trend: "up" },
-      { id: "claude-sonnet-4-6", provider: "Anthropic", share: 34, tokens: "422M", spend: "$11.4K", pass: 98.7, sessions: 3877, cost: "$27.00", trend: "up" },
-      { id: "gpt-5.5", provider: "OpenAI", share: 18, tokens: "223M", spend: "$9.8K", pass: 97.9, sessions: 1944, cost: "$44.00", trend: "flat" },
-      { id: "gemini-3.5-flash", provider: "Google", share: 10, tokens: "124M", spend: "$4.1K", pass: 98.2, sessions: 1162, cost: "$33.10", trend: "up" },
+      { id: "claude-opus-4-8", provider: "Anthropic", share: 31, tokens: "388M", spend: "$22.9K", pass: 99.1, sessions: 4218, cost: "$48.60", trend: "up" },
+      { id: "claude-sonnet-4-6", provider: "Anthropic", share: 27, tokens: "338M", spend: "$11.4K", pass: 98.7, sessions: 3877, cost: "$27.00", trend: "up" },
+      { id: "claude-haiku-4-5", provider: "Anthropic", share: 6, tokens: "74M", spend: "$1.1K", pass: 98.0, sessions: 1840, cost: "$4.80", trend: "up" },
+      { id: "claude-fable-5", provider: "Anthropic", share: 2, tokens: "26M", spend: "$0.9K", pass: 98.8, sessions: 412, cost: "$33.00", trend: "flat" },
+      { id: "gpt-5.5", provider: "OpenAI", share: 15, tokens: "186M", spend: "$9.8K", pass: 97.9, sessions: 1944, cost: "$44.00", trend: "flat" },
+      { id: "gpt-5.4", provider: "OpenAI", share: 3, tokens: "38M", spend: "$1.7K", pass: 97.4, sessions: 503, cost: "$40.00", trend: "down" },
+      { id: "gemini-3.5-flash", provider: "Google", share: 9, tokens: "112M", spend: "$1.4K", pass: 98.2, sessions: 2162, cost: "$3.10", trend: "up" },
+      { id: "gemini-3.1-pro", provider: "Google", share: 2, tokens: "25M", spend: "$2.0K", pass: 98.5, sessions: 388, cost: "$26.00", trend: "up" },
+      { id: "deepseek-v4", provider: "DeepSeek", share: 7, tokens: "87M", spend: "$0.7K", pass: 98.0, sessions: 1290, cost: "$1.10", trend: "up" },
+      { id: "qwen3.5-397b", provider: "Alibaba", share: 5, tokens: "62M", spend: "$0.5K", pass: 97.6, sessions: 1004, cost: "$0.90", trend: "up" },
+      { id: "qwen-local", provider: "Alibaba", share: 1, tokens: "14M", spend: "$0.0", pass: 96.9, sessions: 311, cost: "$0.00", trend: "flat" },
+      { id: "glm-5.1", provider: "Zhipu", share: 4, tokens: "49M", spend: "$0.4K", pass: 97.8, sessions: 842, cost: "$0.80", trend: "up" },
+      { id: "grok", provider: "xAI", share: 2, tokens: "24M", spend: "$1.2K", pass: 97.2, sessions: 366, cost: "$15.00", trend: "flat" },
+      { id: "kimi-k2.6", provider: "Moonshot", share: 1, tokens: "17M", spend: "$0.2K", pass: 97.5, sessions: 281, cost: "$0.60", trend: "up" },
+      { id: "minimax-m3", provider: "MiniMax", share: 1, tokens: "11M", spend: "$0.1K", pass: 96.8, sessions: 198, cost: "$0.50", trend: "flat" },
+      { id: "nemotron-3-ultra", provider: "NVIDIA", share: 1, tokens: "9M", spend: "$0.0", pass: 97.0, sessions: 174, cost: "$0.00", trend: "up" },
+      { id: "cursor", provider: "Cursor", share: 2, tokens: "21M", spend: "$0.8K", pass: 98.4, sessions: 540, cost: "$12.00", trend: "up" },
     ];
+    // Provider display order for grouping on the Models page.
+    const PROVIDER_ORDER = ["Anthropic", "OpenAI", "Google", "DeepSeek", "Alibaba", "Zhipu", "xAI", "Moonshot", "MiniMax", "NVIDIA", "Cursor"];
     function trendGlyph(t: string) {
       return t === "up"
         ? `<span class="delta-up">${svg(ICON.arrowUp)}</span>`
@@ -601,21 +653,17 @@ export default function DashboardApp() {
         : `<span style="color:var(--faint)">—</span>`;
     }
     function modelsView() {
-      return `<div class="view">
-        ${headHTML("Models", "Every model running across Acme Corp — usage, spend, and independently verified pass rate.")}
-        <div class="kpis k4">
-          ${kpiCard(ICON.models, "Models in Use", "4", "1", "added gemini-3.5")}
-          ${kpiCard(ICON.bolt, "Tokens Total", "1.24B", "18.7%", "vs prev. 30d")}
-          ${kpiCard(ICON.shield, "Blended Pass Rate", "98.6%", "0.7%", "vs prev. 30d")}
-          ${kpiCard(ICON.spend, "Avg Cost / 1M", "$38.90", "4.2%", "cheaper", "down")}
-        </div>
-        <div class="card">
-          <div class="card-head"><div><h2 class="card-title">Models under verification</h2><p class="card-sub">Mirrors the Overview model mix — share, cost, and per-model pass rate.</p></div>
-            <button class="btn-ghost" data-flash>Filter</button></div>
-          <table>
-            <thead><tr><th>Model</th><th>Provider</th><th class="num">Usage</th><th class="num">Tokens</th><th class="num">Spend</th><th class="num">Pass rate</th><th class="num">Sessions</th><th class="num">Cost / 1M</th><th class="num">Trend</th></tr></thead>
-            <tbody>${MODEL_ROWS.map(
-              (m) => `
+      const colCount = 9;
+      const groupedBody = PROVIDER_ORDER.flatMap((prov) => {
+        const rows = MODEL_ROWS.filter((m) => m.provider === prov);
+        if (!rows.length) return [];
+        const swatch = MODEL_COLOR[rows[0].id];
+        const header = `<tr class="provider-row"><td colspan="${colCount}">
+          <span class="provider-name"><i style="background:${swatch}"></i>${prov}</span>
+          <span class="provider-count">${rows.length} model${rows.length > 1 ? "s" : ""}</span></td></tr>`;
+        const body = rows
+          .map(
+            (m) => `
               <tr>
                 <td><span class="model-chip"><i style="background:${MODEL_COLOR[m.id]}"></i>${m.id}</span></td>
                 <td class="cell-strong">${m.provider}</td>
@@ -627,8 +675,24 @@ export default function DashboardApp() {
                 <td class="num">${m.cost}</td>
                 <td class="num">${trendGlyph(m.trend)}</td>
               </tr>`
-            ).join("")}
-            </tbody>
+          )
+          .join("");
+        return [header + body];
+      }).join("");
+      return `<div class="view">
+        ${headHTML("Models", "Every model running across Scaffolde — usage, spend, and independently verified pass rate.")}
+        <div class="kpis k4">
+          ${kpiCard(ICON.models, "Models in Use", String(MODEL_ROWS.length), "4", "newly verified")}
+          ${kpiCard(ICON.bolt, "Tokens Total", "1.24B", "18.7%", "vs prev. 30d")}
+          ${kpiCard(ICON.shield, "Blended Pass Rate", "98.6%", "0.7%", "vs prev. 30d")}
+          ${kpiCard(ICON.spend, "Avg Cost / 1M", "$38.90", "4.2%", "cheaper", "down")}
+        </div>
+        <div class="card">
+          <div class="card-head"><div><h2 class="card-title">Models under verification</h2><p class="card-sub">Full catalog, grouped by provider — share, cost, and per-model pass rate.</p></div>
+            <button class="btn-ghost" data-flash>Filter</button></div>
+          <table class="models-table">
+            <thead><tr><th>Model</th><th>Provider</th><th class="num">Usage</th><th class="num">Tokens</th><th class="num">Spend</th><th class="num">Pass rate</th><th class="num">Sessions</th><th class="num">Cost / 1M</th><th class="num">Trend</th></tr></thead>
+            <tbody>${groupedBody}</tbody>
           </table>
         </div>
       </div>`;
@@ -747,7 +811,7 @@ export default function DashboardApp() {
     }
     function projectsView() {
       return `<div class="view">
-        ${headHTML("Projects", "Verified AI work grouped by project and business unit across Acme Corp.")}
+        ${headHTML("Projects", "Verified AI work grouped by project and business unit across Scaffolde.")}
         <div class="kpis k4">
           ${kpiCard(ICON.projects, "Projects", "18", "2", "newly onboarded")}
           ${kpiCard(ICON.check, "Verified Runs", "9,372", "12.0%", "vs prev. 30d")}
@@ -878,7 +942,7 @@ export default function DashboardApp() {
       evidence: ["Evidence", ICON.evidence, "Tamper-evident evidence store retaining every proof for audit."],
       reports: ["Reports", ICON.reports, "Auditor-ready reports and scheduled exports of verification coverage."],
       attestations: ["Attestations", ICON.attest, "Compliance attestations roll up from verified sessions. Each session carries its own proof — open any session to see its attestation."],
-      settings: ["Settings", ICON.settings, "Workspace, member, and verification configuration for Acme Corp."],
+      settings: ["Settings", ICON.settings, "Workspace, member, and verification configuration for Scaffolde."],
     };
     function stubView(id: string) {
       const [title, icon, text] = STUB[id];
@@ -887,6 +951,97 @@ export default function DashboardApp() {
         <div class="stub"><div class="stub-icon">${svg(icon)}</div>
           <div class="stub-title">${title}</div><p class="stub-text">${text}</p>
           <span class="stub-badge">Available in the full product</span></div>
+      </div>`;
+    }
+
+    /* ============================================================ CONNECTED SURFACES VIEW */
+    // Snapshot of the real Scaffolde subsystems (probed 2026-06-22). Native
+    // cobalt tiles — NOT iframes (the subsystems are dark-themed and would
+    // clash). localhost endpoints are unreachable from a deployed build, so
+    // these are honest captured values rather than live fetches.
+    type Surface = {
+      name: string;
+      tag: string;
+      state: "live" | "neutral" | "warn";
+      stat: string;
+      sub: string;
+      link?: { label: string; port?: string };
+      accent: string;
+    };
+    const SURFACES: Surface[] = [
+      {
+        name: "Paperclip",
+        tag: "Task Control Plane",
+        state: "live",
+        stat: "475 done · 3 in review · 2 blocked",
+        sub: "24 agents on bench",
+        link: { label: "Open board", port: ":3102" },
+        accent: "#2563EB",
+      },
+      {
+        name: "Hermes",
+        tag: "Autonomous Operator",
+        state: "live",
+        stat: "Gateway running · 1 active session",
+        sub: "WhatsApp ✓ · Slack ✓ · v0.17.0",
+        link: { label: "Open dashboard", port: ":9119" },
+        accent: "#7C3AED",
+      },
+      {
+        name: "gbrain",
+        tag: "Knowledge Graph",
+        state: "live",
+        stat: "18.4K pages · 92.1K links",
+        sub: "postgres · v0.42.38",
+        link: { label: "Explore" },
+        accent: "#0891B2",
+      },
+      {
+        name: "OpenClaw",
+        tag: "Agent Gateway",
+        state: "live",
+        stat: "Live",
+        sub: "Control plane · :18789",
+        link: { label: "Open Control", port: ":18789" },
+        accent: "#DB2777",
+      },
+      {
+        name: "gstack",
+        tag: "Code Quality",
+        state: "neutral",
+        stat: "8.4 / 10",
+        sub: "CLI · local-only",
+        accent: "#475569",
+      },
+    ];
+    function surfaceTile(s: Surface) {
+      const dot =
+        s.state === "live"
+          ? `<span class="surf-dot live"></span>`
+          : s.state === "warn"
+          ? `<span class="surf-dot warn"></span>`
+          : `<span class="surf-dot neutral"></span>`;
+      const link = s.link
+        ? `<button class="surf-link" data-flash>${svg(ICON.external)}<span>${s.link.label}</span>${
+            s.link.port ? `<span class="surf-port">${s.link.port}</span>` : ""
+          }</button>`
+        : `<span class="surf-nolink">No web UI · run /health</span>`;
+      return `<div class="surf-tile" style="--surf-accent:${s.accent}">
+        <div class="surf-top">
+          <div class="surf-id"><div class="surf-name">${s.name}</div><div class="surf-tag">${s.tag}</div></div>
+          ${dot}
+        </div>
+        <div class="surf-stat">${s.stat}</div>
+        <div class="surf-sub">${s.sub}</div>
+        <div class="surf-foot">${link}</div>
+      </div>`;
+    }
+    function connectedView() {
+      const liveCount = SURFACES.filter((s) => s.state === "live").length;
+      return `<div class="view">
+        ${headHTML("Connected Surfaces", "Every Scaffolde subsystem the verification plane is wired into.", { date: false, export: false })}
+        <div class="surf-rollup"><span class="surf-rollup-dot"></span>${liveCount} of ${SURFACES.length} surfaces live</div>
+        <div class="surf-grid">${SURFACES.map(surfaceTile).join("")}</div>
       </div>`;
     }
 
@@ -904,6 +1059,7 @@ export default function DashboardApp() {
         agents: agentsView,
         sessions: sessionsView,
         models: modelsView,
+        connected: connectedView,
         skills: skillsView,
         workflows: workflowsView,
         projects: projectsView,
@@ -1151,7 +1307,7 @@ export default function DashboardApp() {
     /* ============================================================ BOOT (deep-link aware) */
     renderNav();
     (function boot() {
-      const VIEWS = ["overview", "live", "sessions", "agents", "skills", "workflows", "projects", "models", "learnings", "memories"];
+      const VIEWS = ["overview", "live", "sessions", "agents", "skills", "workflows", "projects", "models", "connected", "learnings", "memories"];
       let view = "overview",
         session: string | null = null;
       try {
@@ -1182,10 +1338,19 @@ export default function DashboardApp() {
           <nav className="nav" id="nav"></nav>
           <div className="nav-spacer"></div>
           <button className="workspace" id="workspace">
-            <span className="ws-avatar">AC</span>
+            <span className="ws-avatar ws-mark" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g strokeLinejoin="round" strokeLinecap="round">
+                  <path d="M28 38 L42 45 L28 52 L14 45 Z" fill="#1D4ED8" />
+                  <path d="M28 29 L42 36 L28 43 L14 36 Z" fill="#2563EB" />
+                  <path d="M28 11 L42 18 L28 25 L14 18 Z" fill="#60A5FA" />
+                  <path d="M23.2 18.2 L26.6 21.2 L33 15.6" stroke="#FFFFFF" strokeWidth="2.4" fill="none" />
+                </g>
+              </svg>
+            </span>
             <span className="ws-text">
-              <span className="ws-name">Acme Corp</span>
-              <span className="ws-sub">Enterprise workspace</span>
+              <span className="ws-name">Scaffolde</span>
+              <span className="ws-sub">Verification workspace</span>
             </span>
             <svg
               className="ws-chev"
