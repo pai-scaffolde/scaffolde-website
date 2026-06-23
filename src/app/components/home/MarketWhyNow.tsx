@@ -16,7 +16,7 @@ const WHY_NOW = [
   },
   {
     h3: "Agents made it urgent",
-    p: "Autonomous agents act across the business. “Did the model give a good answer” became “what did our agents actually do, everywhere, and can we prove it.”",
+    p: "Autonomous agents now act across the business. The question shifted from whether the model gave a good answer to what every agent did, everywhere, and whether anyone can prove it.",
   },
   {
     h3: "No independent layer exists",

@@ -113,9 +113,9 @@ export default function InvestorsPage() {
             <div className="defitem">
               <h3>Agents made it urgent</h3>
               <p>
-                Autonomous agents act across the business. &ldquo;Did the model give
-                a good answer&rdquo; became &ldquo;what did our agents actually do,
-                everywhere, and can we prove it.&rdquo;
+                Autonomous agents now act across the business. The question shifted
+                from whether the model gave a good answer to what every agent did,
+                everywhere, and whether anyone can prove it.
               </p>
             </div>
             <div className="defitem">

@@ -12,10 +12,7 @@ export default function HowItWorks() {
       <div className="wrap">
         <Reveal className="sec-head">
           <div className="kicker">How it works</div>
-          <h2>
-            An independent layer between your AI and the people who must trust
-            it.
-          </h2>
+          <h2>Why the verifier has to be independent of the model.</h2>
           <p>
             Scaffolde sits outside the model vendors. It sets acceptance
             criteria before the work begins, then checks, evidences, and

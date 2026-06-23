@@ -64,7 +64,7 @@ const FEATURES = [
     ),
   },
   {
-    title: "Models",
+    title: "Models, any provider",
     body: "The full model mix: Claude, GPT, Gemini, Grok, DeepSeek, Qwen, and any open-source model you run. Per-model pass rate and cost.",
     icon: (
       <>
